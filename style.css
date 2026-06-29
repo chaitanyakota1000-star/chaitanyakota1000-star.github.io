@@ -565,7 +565,7 @@ button { font-family: var(--font-main); cursor: pointer; border: none; backgroun
   gap: 20px; padding: 24px;
 }
 .hero-content {
-  padding: 120px 60px; color: #fff;
+  padding: 120px 60px; color: var(--clr-text-main);
 }
 .hero-content h1 {
   font-size: 56px; font-weight: 800; line-height: 1.15;
@@ -573,7 +573,7 @@ button { font-family: var(--font-main); cursor: pointer; border: none; backgroun
 }
 .hero-content p {
   font-size: 18px; max-width: 600px; line-height: 1.7;
-  opacity: .95; margin-bottom: 32px;
+  opacity: .85; margin-bottom: 32px;
 }
 .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 .hero-btn {
@@ -589,13 +589,13 @@ button { font-family: var(--font-main); cursor: pointer; border: none; backgroun
 }
 .hero-btn-primary:hover { box-shadow: 0 10px 25px rgba(244, 63, 94, 0.4); }
 .hero-btn-outline {
-  background: rgba(255,255,255,.12);
+  background: var(--bg-card);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  color: #fff; border: 2px solid rgba(255,255,255,.3);
+  color: var(--clr-text-main); border: 2.5px solid var(--clr-border);
 }
 .hero-btn-outline:hover {
-  background: rgba(255,255,255,.24);
-  box-shadow: 0 10px 25px rgba(255,255,255,.1);
+  background: var(--bg-item-hover);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ============================================================
