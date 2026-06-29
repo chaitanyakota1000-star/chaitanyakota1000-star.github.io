@@ -6,6 +6,33 @@
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
+// ─── Theme Management ───────────────────────────────────────
+function initTheme() {
+  const theme = localStorage.getItem('shopease_theme') || 'light';
+  if (theme === 'dark') {
+    document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
+  }
+}
+
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('shopease_theme', isDark ? 'dark' : 'light');
+  
+  // Update the button icon dynamically if rendered
+  const btn = $('.theme-toggle-btn');
+  if (btn) {
+    btn.innerHTML = isDark ? '☀️' : '🌙';
+    btn.title = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+  }
+  
+  showToast(`${isDark ? 'Dark Space' : 'Classic Light'} theme enabled!`);
+}
+
+// Call theme initialization immediately to prevent layout flashes
+initTheme();
+
 // ─── Toast System ───────────────────────────────────────────
 function showToast(message, type = 'success') {
   let container = $('#toast-container');
@@ -80,12 +107,10 @@ function updateCartBadge() {
 // ─── Add to Cart (globally used by product pages) ───────────
 function addToCart(name, price, imgSrc) {
   const cart = getCart();
-  // try to find image from the card that triggered it
   if (!imgSrc) {
-    // look at the event target's parent card for an image
     try {
       const btn = event.currentTarget || event.target;
-      const card = btn.closest('.product-card') || btn.closest('.card') || btn.closest('.smartbox');
+      const card = btn.closest('.product-card') || btn.closest('.card') || btn.closest('.smartbox') || btn.closest('.featured-card');
       if (card) {
         const img = card.querySelector('img');
         if (img) imgSrc = img.src;
@@ -109,8 +134,7 @@ function initSearch() {
   if (!input) return;
   input.addEventListener('input', () => {
     const q = input.value.toLowerCase().trim();
-    // support .product-card, .card, .smartbox
-    const cards = $$('.product-card, .card, .smartbox');
+    const cards = $$('.product-card, .card, .smartbox, .featured-card');
     cards.forEach(c => {
       const text = c.textContent.toLowerCase();
       c.style.display = text.includes(q) ? '' : 'none';
@@ -123,6 +147,7 @@ function renderNavbar(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
   const session = getSession();
+  const isDark = document.body.classList.contains('dark');
 
   container.innerHTML = `
     <nav class="navbar" id="main-navbar">
@@ -137,10 +162,15 @@ function renderNavbar(containerId) {
       </div>
 
       <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" onclick="toggleTheme()" title="${isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}">
+          ${isDark ? '☀️' : '🌙'}
+        </button>
+
         <!-- Notifications -->
         <div class="dropdown-wrapper" id="notif-wrapper">
-          <button onclick="toggleDropdown('notif-dropdown')" title="Notifications">
-            🔔
+          <button class="nav-btn" onclick="toggleDropdown('notif-dropdown')" title="Notifications">
+            🔔 <span class="nav-label">Alerts</span>
             <span class="badge badge-green" id="notif-badge" style="display:none">0</span>
           </button>
           <div class="dropdown-panel" id="notif-dropdown">
@@ -160,7 +190,7 @@ function renderNavbar(containerId) {
 
         <!-- Account -->
         <div class="dropdown-wrapper" id="account-wrapper">
-          <button onclick="toggleDropdown('account-dropdown')">
+          <button class="nav-btn" onclick="toggleDropdown('account-dropdown')">
             ${session
               ? `<span class="user-avatar">${session.name.charAt(0).toUpperCase()}</span>`
               : '👤'}
@@ -191,7 +221,7 @@ function renderNavbar(containerId) {
   renderNotifPanel();
   initSearch();
 
-  // Seed welcome notification for first visit
+  // Seed welcome notifications on first load
   if (getNotifications().length === 0) {
     addNotification('Welcome to ShopEase! 🎉', 'Explore amazing deals and save big.', '🎉', 'gold');
     addNotification('Flash Sale Live! ⚡', 'Up to 65% off on Fashion & Electronics.', '⚡', 'green');
@@ -220,7 +250,6 @@ function renderNotifPanel() {
 
 function toggleDropdown(id) {
   const panel = document.getElementById(id);
-  // close others
   $$('.dropdown-panel').forEach(p => { if (p.id !== id) p.classList.remove('show'); });
   panel.classList.toggle('show');
   if (id === 'notif-dropdown' && panel.classList.contains('show')) {
@@ -231,7 +260,7 @@ function toggleDropdown(id) {
 
 // Close dropdowns on outside click
 document.addEventListener('click', e => {
-  if (!e.target.closest('.dropdown-wrapper')) {
+  if (!e.target.closest('.dropdown-wrapper') && !e.target.closest('.theme-toggle-btn')) {
     $$('.dropdown-panel').forEach(p => p.classList.remove('show'));
   }
 });
@@ -285,7 +314,7 @@ function renderPremiumCart() {
       </div>`;
   }).join('');
 
-  // summary
+  // summary calculations
   const subtotal = cart.reduce((s, i) => s + i.price * (i.quantity || 1), 0);
   const itemCount = cart.reduce((s, i) => s + (i.quantity || 1), 0);
   if (summaryEl) {
@@ -345,7 +374,6 @@ async function apiSignup(data) {
     });
     return await res.json();
   } catch {
-    // fallback to localStorage if server is not running
     return localSignup(data);
   }
 }
@@ -359,7 +387,6 @@ async function apiLogin(data) {
     });
     return await res.json();
   } catch {
-    // fallback to localStorage if server is not running
     return localLogin(data);
   }
 }
@@ -383,12 +410,9 @@ function localLogin(data) {
 
 // ─── Init on DOM Ready ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  // If a navbar container exists, render it
+  initTheme();
   if ($('#navbar-container')) renderNavbar('navbar-container');
-  // If cart page, render premium cart
   if ($('#cart-items')) renderPremiumCart();
-  // Init search on any page
   initSearch();
-  // Update badge
   updateCartBadge();
 });
