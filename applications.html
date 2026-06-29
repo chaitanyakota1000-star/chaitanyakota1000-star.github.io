@@ -1,381 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Applicataions -ShopNew </title>
-
-<style>
-body {
-  background: linear-gradient(135deg, #85edbb, #e2e8f0);
-}
-
-
-.box{
-   background: linear-gradient(135deg, #85edbb, #e2e8f0);
-   height:auto;
-   width:100%;
-   justify-content:space-between;
-   gap: 50px;
-   flex-wrap:wrap;
-   align-items:center;
-   display: flex;
-   position:sticky;
-   top:0;
-   z-index:100;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
-   
-
-}
- .logo-text {
-      font-size: 22px;
-      font-weight: bold;
-      color: #1a1a1a;
-    }
-
-
-  .link {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .link a {
-      color: #1a1a1a;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-    .link a:hover {
-      background: rgba(255,255,255,0.5);
-      color: #2a9d5c;
-    }
-    .cart-link { 
-      position: relative;  
-}
-    .cart-badge {
-      position: absolute;
-      top: 2px; right: 6px;
-      background: #e74c3c;
-      color: white;
-      font-size: 10px;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 16px; height: 16px;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-
-.searchbar {
-      display: flex;
-      align-items: center;
-      background: #f7f9fa;
-      border-radius: 10px;
-      padding: 6px 12px;
-      gap: 8px;
-    }
- .searchbar-wrapper {
-      flex: 1;
-      max-width: 400px;
-      padding: 2px;
-      border-radius: 12px;
-      background: linear-gradient(to right, #38c97d, #6b8cba);
-    }
-
-.search-input{
-  border:none;
-  width:100%;
-  max-width:500px;
-  height:25px;
-  outline:none;
-   border-radius:30px ;
-  background-color:#f7f9fa;
-text-align:center;
-   
-  
-}
-.slidebar{
-    cursor:pointer;
-    padding:8px 12px;
-    border-radius:20px;
-    width:200px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: 0.3s ease;
-    border: none;
-    outline: none;
-    background:none;
-}
-
-
-
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
-  padding: 15px;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-}
-
-
-.name {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 8px 0;
-}
-
-.price {
-  color: #10b981;
-  font-weight: bold;
-}
-
-button {
-  margin-top: 8px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(to right, #6366f1, #3b82f6);
-  color: white;
-  cursor: pointer;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop home appliances at ShopEase — refrigerators, washing machines, ACs, vacuum cleaners and more.">
+    <title>Appliances — ShopEase</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #85edbb, #e2e8f0);
+        }
+    </style>
 </head>
-
 <body>
+    <div id="navbar-container"></div>
 
- <div class="box">
+    <h1 style="text-align:center; margin: 30px 0 10px; font-size: 2.2rem; color: #1a202c;">Appliances</h1>
+    <p style="text-align:center; margin: 0 0 30px; color: #4a5568; font-size: 1.1rem;">Shop home appliances at ShopEase — refrigerators, washing machines, ACs, vacuum cleaners and more.</p>
 
-        <span class="logo-text">ShopEase</span>
+    <div class="products-grid">
 
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8-kiM2r5XXd6rynlT7nTJ2GYR1MwtNMl5JQ&s" alt="Refrigerator">
+            <div class="product-name">Refrigerator</div>
+            <div class="product-price">₹25,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Refrigerator', 25999)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTatw7NgSRxxvBWXd5Yl_p4L3cPA180nzqY2g&s" alt="Washing Machine">
+            <div class="product-name">Washing Machine</div>
+            <div class="product-price">₹18,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Washing Machine', 18999)">Add to Cart</button>
+        </div>
 
-       <div class="searchbar-wrapper">
-    <div class="searchbar">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" id="search" type="text" placeholder="Search for Products, Brands and More" name="search"/>
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgF9M3c52Xx64WK3FZq9eQNeuSwGnvFEiVgA&s" alt="Microwave Oven">
+            <div class="product-name">Microwave Oven</div>
+            <div class="product-price">₹9,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Microwave Oven', 9999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk5ZqhYxaY3SP6A_BtBeqQ6YMfCNKJX_YLJQ&s" alt="Air Conditioner">
+            <div class="product-name">Air Conditioner</div>
+            <div class="product-price">₹32,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Air Conditioner', 32999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB9OTIP40DvttvQZiOjDSZmza-LPGHOp6hYg&s" alt="Ceiling Fan">
+            <div class="product-name">Ceiling Fan</div>
+            <div class="product-price">₹2,499</div>
+            <button class="add-cart-btn" onclick="addToCart('Ceiling Fan', 2499)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMYS0UpiGWrRsQr_ATzTbBWtPLXo_7WxRQoA&s" alt="Vacuum Cleaner">
+            <div class="product-name">Vacuum Cleaner</div>
+            <div class="product-price">₹7,499</div>
+            <button class="add-cart-btn" onclick="addToCart('Vacuum Cleaner', 7499)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGx1xZD90x_iJF_w-QofdsShCVeVRMLptTsg&s" alt="Mixer Grinder">
+            <div class="product-name">Mixer Grinder</div>
+            <div class="product-price">₹3,499</div>
+            <button class="add-cart-btn" onclick="addToCart('Mixer Grinder', 3499)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHkURM0KSNVx6NdCTQK-EdqPavJkbhXo4d8Q&s" alt="Electric Iron">
+            <div class="product-name">Electric Iron</div>
+            <div class="product-price">₹1,299</div>
+            <button class="add-cart-btn" onclick="addToCart('Electric Iron', 1299)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://5.imimg.com/data5/AK/DQ/MY-38559956/room-air-cooler-500x500.jpg" alt="Air Cooler">
+            <div class="product-name">Air Cooler</div>
+            <div class="product-price">₹8,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Air Cooler', 8999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkBUe0iO422MG7DxONdRTYV_OPqHaJCKhhoA&s" alt="Dishwasher">
+            <div class="product-name">Dishwasher</div>
+            <div class="product-price">₹29,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Dishwasher', 29999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2EMxGK0uzqC89yZEBhnZKr5akcPzJi623kA&s" alt="Water Purifier">
+            <div class="product-name">Water Purifier</div>
+            <div class="product-price">₹12,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Water Purifier', 12999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZR8WdYu61-BeYSq0PW9wIEM8YYXkFhs4Y3g&s" alt="Induction Cooktop">
+            <div class="product-name">Induction Cooktop</div>
+            <div class="product-price">₹2,799</div>
+            <button class="add-cart-btn" onclick="addToCart('Induction Cooktop', 2799)">Add to Cart</button>
+        </div>
+
     </div>
-  
- </div>
-      
-    <div class="link">
-    <a href="cart.html" class="cart-link">
-      🛒 Cart
-      <span class="cart-badge" id="cartCount">0</span>
-    </a>
-    <a href="signuppage.html">SignUp</a>
-    <a href="login.html">Login</a>
-  </div>
 
-      
-       </div>
-
- 
-<div class="container">
-
- <div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8-kiM2r5XXd6rynlT7nTJ2GYR1MwtNMl5JQ&s">
-  <div class="name">Refrigerator</div>
-  <div class="price">₹25,999</div>
-  <button onclick="addToCart('Refrigerator', 25999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTatw7NgSRxxvBWXd5Yl_p4L3cPA180nzqY2g&s">
-  <div class="name">Washing Machine</div>
-  <div class="price">₹18,999</div>
-  <button onclick="addToCart('Washing Machine', 18999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgF9M3c52Xx64WK3FZq9eQNeuSwGnvFEiVgA&s">
-  <div class="name">Microwave Oven</div>
-  <div class="price">₹9,999</div>
-  <button onclick="addToCart('Microwave Oven', 9999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk5ZqhYxaY3SP6A_BtBeqQ6YMfCNKJX_YLJQ&s">
-  <div class="name">Air Conditioner</div>
-  <div class="price">₹32,999</div>
-  <button onclick="addToCart('Air Conditioner', 32999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB9OTIP40DvttvQZiOjDSZmza-LPGHOp6hYg&s">
-  <div class="name">Ceiling Fan</div>
-  <div class="price">₹2,499</div>
-  <button onclick="addToCart('Ceiling Fan', 2499)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4DjS-U69VN_LfIexGuSj5ARYEiTW5SiFedA&s">
-  <div class="name">Water Heater (Geyser)</div>
-  <div class="price">₹6,999</div>
-  <button onclick="addToCart('Geyser', 6999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMYS0UpiGWrRsQr_ATzTbBWtPLXo_7WxRQoA&s">
-  <div class="name">Vacuum Cleaner</div>
-  <div class="price">₹7,499</div>
-  <button onclick="addToCart('Vacuum Cleaner', 7499)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGx1xZD90x_iJF_w-QofdsShCVeVRMLptTsg&s">
-  <div class="name">Mixer Grinder</div>
-  <div class="price">₹3,499</div>
-  <button onclick="addToCart('Mixer Grinder', 3499)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHkURM0KSNVx6NdCTQK-EdqPavJkbhXo4d8Q&s">
-  <div class="name">Electric Iron</div>
-  <div class="price">₹1,299</div>
-  <button onclick="addToCart('Electric Iron', 1299)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://5.imimg.com/data5/AK/DQ/MY-38559956/room-air-cooler-500x500.jpg">
-  <div class="name">Air Cooler</div>
-  <div class="price">₹8,999</div>
-  <button onclick="addToCart('Air Cooler', 8999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkBUe0iO422MG7DxONdRTYV_OPqHaJCKhhoA&s">
-  <div class="name">Dishwasher</div>
-  <div class="price">₹29,999</div>
-  <button onclick="addToCart('Dishwasher', 29999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2EMxGK0uzqC89yZEBhnZKr5akcPzJi623kA&s">
-  <div class="name">Water Purifier</div>
-  <div class="price">₹12,999</div>
-  <button onclick="addToCart('Water Purifier', 12999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZR8WdYu61-BeYSq0PW9wIEM8YYXkFhs4Y3g&s">
-  <div class="name">Induction Cooktop</div>
-  <div class="price">₹2,799</div>
-  <button onclick="addToCart('Induction Cooktop', 2799)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa7H_3l_JaEdsEYzpO6jYk7UmxPEMia3yJXQ&s">
-  <div class="name">Gas Stove</div>
-  <div class="price">₹3,999</div>
-  <button onclick="addToCart('Gas Stove', 3999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF4jiXNbIqJQlwyiG0hKy9UO_wgiZu9-OFmQ&s">
-  <div class="name">Rice Cooker</div>
-  <div class="price">₹2,199</div>
-  <button onclick="addToCart('Rice Cooker', 2199)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlnC8-6D6GWS_4-rCs95HSlf1qvTZvBu4qxA&s">
-  <div class="name">Toaster</div>
-  <div class="price">₹1,499</div>
-  <button onclick="addToCart('Toaster', 1499)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSymdIJqob2L_9dOkNx8UJOjL_ZDIF4iMf04g&s">
-  <div class="name">Electric Kettle</div>
-  <div class="price">₹1,299</div>
-  <button onclick="addToCart('Electric Kettle', 1299)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMhbC3CldwTICXdTNr3Dlxkm8Cm-hYKgHXww&s">
-  <div class="name">Room Heater</div>
-  <div class="price">₹2,999</div>
-  <button onclick="addToCart('Room Heater', 2999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYdmft1l5a-4QI9-xtWeO_WOXMps1ieCa5lg&s">
-  <div class="name">Blender</div>
-  <div class="price">₹2,499</div>
-  <button onclick="addToCart('Blender', 2499)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU05rkaMtu9HI1wqxquHH_E84cCzvby4390w&s">
-  <div class="name">Coffee Maker</div>
-  <div class="price">₹4,999</div>
-  <button onclick="addToCart('Coffee Maker', 4999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3on_9aoTpe5I28Ht-M6RAYZgm2UqGeYovow&s">
-  <div class="name">Chimney</div>
-  <div class="price">₹11,999</div>
-  <button onclick="addToCart('Chimney', 11999)">Add to cart</button>
-</div>
-
-  
-</div>
-
-
-<script>
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  
-  function addToCart(name,price){
-   let product={
-       name,
-       price
-      };
-   cart.push(product);
-   
-   localStorage.setItem("cart",JSON.stringify(cart));
-
-   alert(name+ " added to cart!");
-
-}
-function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let count = 0;
-
-    cart.forEach(item => {
-        count += item.quantity || 1;
-    });
-
-    document.getElementById("cartCount").innerText = count;
-}
-
-
-updateCartCount();
-
-
-</script>
-
-
+    <script src="main.js"></script>
 </body>
 </html>

@@ -1,632 +1,250 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <title> Intro </title>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<style>
-
-
-@media(max-width:768px){
- .deals-section{
-  grid-template-columns: 1fr; 
-  gap: 15px;
-}
- .box{
-   flex-direction:column;
-   align-items:center;
-   gap:10px;
-}
-
-.search-bar{
-  width:90%;
-  justify-content:center;
-  margin:5px;
-}
-.search-input{
-  width:90%;
-}
-.link{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  flex-direction:column;
-}
-
-.category-content{
-  flex-wrap:wrap;
-  height:auto;
-  gap:10px;
-}
-
-.category-item{
-  width:80px;
-  padding:10px;
-}
-
-.container{
-  justify-content:center;
-}
-
-.smartbox{
-  flex:1 1 100%;
-  max-width:100%;
-}
-.smartphones{
-  max-width:100%;
-}
-
-@media(max-width:768px){
-
-  .deals-section{
-    display: grid;
-     grid-template-columns: 1fr !important;
-    gap: 12px;
-    padding: 10px;
-  }
-
-  .deals-img{
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-  }
-
-  .deals-text{
-    position: static;
-    transform: none;
-    width: 60%;
-    padding: 10px;
-    text-align: left;
-  }
-
-  .deals-innerimg{
-    position: static;
-    width: 90px;
-    height: 90px;
-  }
-
-}
-.title {
-    font-size: 20px;
-    margin: 5px 0;
-  }
-
-}
- 
-body {
-   margin: 0;
-   min-height: 100vh;    
-   background: linear-gradient(135deg, #85edbb, #e2e8f0);
-}
-.box{
-   background: linear-gradient(135deg, #85edbb, #e2e8f0);
-   height:auto;
-   width:100%;
-   padding:2px;
-   justify-content:space-between;
-   gap: 50px;
-   flex-wrap:wrap;
-   align-items:center;
-   display: flex;
-   position:sticky;
-   top:0;
-   z-index:100;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
-   
-
-}
-
-  .logo-text {
-      font-size: 22px;
-      font-weight: bold;
-      color: #1a1a1a;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse ShopEase — Explore categories, trending deals, and popular products across Mobiles, Fashion, Electronics, and more.">
+  <title>ShopEase — Browse & Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0; min-height: 100vh;
+      background: linear-gradient(135deg, #85edbb, #e2e8f0);
     }
 
-
-  .link {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .link a {
-      color: #1a1a1a;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-    .link a:hover {
-      background: rgba(255,255,255,0.5);
-      color: #2a9d5c;
-    }
-    .cart-link { 
-      position: relative;  
-}
-    .cart-badge {
-      position: absolute;
-      top: 2px; right: 6px;
-      background: #e74c3c;
-      color: white;
-      font-size: 10px;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 16px; height: 16px;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-
-.searchbar {
-      display: flex;
-      align-items: center;
-      background: #f7f9fa;
-      border-radius: 10px;
-      padding: 6px 12px;
-      gap: 8px;
-    }
- .searchbar-wrapper {
-      flex: 1;
-      max-width: 400px;
-      padding: 2px;
-      border-radius: 12px;
-      background: linear-gradient(to right, #38c97d, #6b8cba);
-    }
-
-.search-input{
-  border:none;
-  width:100%;
-  max-width:500px;
-  height:25px;
-  outline:none;
-   border-radius:30px ;
-  background-color:#f7f9fa;
-text-align:center;
-   
-  
-}
-.slidebar{
-    cursor:pointer;
-    padding:8px 12px;
-    border-radius:20px;
-    width:200px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: 0.3s ease;
-    border: none;
-    outline: none;
-    background:none;
-}
-
-.smartphones{
-   
-   width:auto;
-   max-width:250px;
-   border:0px solid blue;
-   display:flex;
-   flex-direction:column;
-   justify-content:space-around;
-   padding:2px;
-   margin:10px;
-   overflow:hidden;
-   border-radius:2px; 
-}
-.smartphones img{
-  
-  width:auto;
-  height:100%;
- object-fit:contain;
- overflow:hidden;
- padding:2px;
-}
-
-.container{
- height:auto;
- display:flex;
- gap:25px;
- flex-wrap:wrap;
- padding:10px;
- top-margin:20px;
- justify-content:center;
- background: linear-gradient(135deg, #85edbb, #e2e8f0);
-}
-
-.pricetag{
- font-size:20px;
- text-align:center;
-}
-.smartbox{
- 
- background-color:#f2e9f2;
- margin:10px;
- border-radius:15px;
-}
-
-.smartbox:hover{
-  transform:translateY(-5px);
-  transition:0.3s;
-}
-   .deals-section {
-      width: 98%;
-      margin: 12px auto;
+    /* ── Featured Products (home page smartbox style) ── */
+    .featured-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      padding: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px; padding: 24px;
+    }
+    .featured-card {
+      background: #f2e9f2; border-radius: 15px;
+      overflow: hidden; transition: transform .3s, box-shadow .3s;
+    }
+    .featured-card:hover {
+      transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+    .featured-card .img-wrap {
+      width: 100%; max-width: 250px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center; padding: 8px;
+    }
+    .featured-card .img-wrap img {
+      width: 100%; height: 200px; object-fit: contain;
+    }
+    .featured-card .info {
+      text-align: center; padding: 10px 12px 16px;
+    }
+    .featured-card .info .fname { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .featured-card .info .fprice { font-size: 15px; }
+    .featured-card .info .cart-btn {
+      margin-top: 8px; padding: 8px 18px; border: none; border-radius: 10px;
+      background-color: #faba8c; cursor: pointer; font-weight: 600;
+      font-family: var(--font-main); font-size: 13px;
+      transition: all .3s ease; box-shadow: 0 6px 12px rgba(0,0,0,.1);
+    }
+    .featured-card .info .cart-btn:hover {
+      transform: translateY(-4px); box-shadow: 0 6px 12px rgba(0,0,0,.15);
     }
 
+    /* ── Deals section ── */
+    .deals-section {
+      width: 98%; margin: 12px auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; padding: 10px;
+    }
     .deals-img {
-      height: 180px;
-      border-radius: 16px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
+      height: 180px; border-radius: 16px;
+      display: flex; align-items: flex-end; overflow: hidden;
+      position: relative; cursor: pointer;
       background: linear-gradient(135deg, #85edbb, #e2e8f0);
       border: 2px solid rgba(255,255,255,0.4);
       transition: transform 0.3s;
     }
-    .deals-img:hover { 
-       transform: translateY(-5px); 
-}
-
-
+    .deals-img:hover { transform: translateY(-5px); }
     .deals-img::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
-      z-index: 1;
-      border-radius: 14px;
+      z-index: 1; border-radius: 14px;
     }
-
     .deals-innerimg {
-      position: absolute;
-      right: 14px;
-      top: 14px;
-      width: 140px;
-      height: 140px;
-      border-radius: 14px;
-      background: white;
-      z-index: 2;
+      position: absolute; right: 14px; top: 14px;
+      width: 140px; height: 140px; border-radius: 14px;
+      background: white; z-index: 2;
       box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
     }
     .deals-innerimg:hover {
-      transform: scale(1.08);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+      transform: scale(1.08); box-shadow: 0 10px 24px rgba(0,0,0,0.3);
     }
-    .deals-innerimg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
+    .deals-innerimg img { width: 100%; height: 100%; object-fit: cover; }
     .deals-text {
-      position: absolute;
-      bottom: 14px;
-      left: 16px;
-      z-index: 3;
+      position: absolute; bottom: 14px; left: 16px; z-index: 3;
     }
-    .subtitle { 
-       font-size: 12px;
-       color: #d4f5e9; 
-       margin-bottom: 2px; 
-}
-    .title    { 
-       font-size: 20px;
-       color: white; 
-       font-weight: bold;
-       margin-bottom: 4px;
- }
-    .promo    { 
-       font-size: 15px; 
-       font-weight: bold; 
-       color: #ffd166;
- }
+    .subtitle { font-size: 12px; color: #d4f5e9; margin-bottom: 2px; }
+    .title { font-size: 20px; color: white; font-weight: bold; margin-bottom: 4px; }
+    .promo { font-size: 15px; font-weight: bold; color: #ffd166; }
 
-.category-container{
- 
- background:linear-gradient(135deg, #85edbb, #e2e8f0);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-  flex-wrap:wrap;
- }
+    /* Section heading */
+    .section-heading {
+      padding: 24px 24px 0; font-size: 22px; font-weight: 800; color: var(--clr-slate-900);
+    }
 
-.category-item{
- height:90px;
- width:100px;
- padding:10px;
- display:flex;
- justify-content:center;
- align-items:center;
- flex-direction:column;
- transition:0.4s;
- border-radius:30px;
- background-color:white;
-cursor:pointer;
- 
-}
-
-.category-item:hover{
- transform:scale(1.1);
- box-shadow: 0 14px 28px rgba(255,255,255,0.1);
-
- 
-}
-.category-item img{
- height:50px;
- width:100px;
- object-fit:cover;
-}
-.category-text{
- font-size:15px;
- margin:5px;
- text-decoration: none !important; 
-
-}
-.category-text a {
-  text-decoration: none !important;
-  border-bottom: none !important;
-  outline: none !important;
-}
-.category-text a:hover {
-  color: #2a9d5c;
-}
-.cartbutton{
-  color:black;
-  height:30px;
-  width:100px;
-  background-color:#faba8c;
-  border:none;
-  border-radius:10px;
-  padding:4px;
-  cursor:pointer;
-  transition:all 0.3s ease;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-.cartbutton:hover{
-  transform:translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-</style>
+    @media (max-width: 768px) {
+      .deals-section { grid-template-columns: 1fr; }
+      .deals-img {
+        height: auto; flex-direction: row; align-items: center;
+        justify-content: space-between; padding: 10px;
+      }
+      .deals-text { position: static; transform: none; width: 60%; padding: 10px; text-align: left; }
+      .deals-innerimg { position: static; width: 90px; height: 90px; }
+      .title { font-size: 18px; }
+    }
+  </style>
 </head>
 <body>
 
- <div class="box">
+  <!-- Dynamic Navbar -->
+  <div id="navbar-container"></div>
 
-        <span class="logo-text">ShopEase</span>
-
-
-
-       <div class="searchbar-wrapper">
-    <div class="searchbar">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" id="search" type="text" placeholder="Search for Products, Brands and More" name="search"/>
+  <!-- Category Strip -->
+  <div class="category-strip">
+    <div class="cat-circle">
+      <img src="https://darlingretail.com/cdn/shop/files/1_6_e4917ae6-59ac-4c7e-83f8-9b7a9fdf68ea_600x.jpg?v=1753531644" alt="Mobiles">
+      <span><a href="Mobile.html">Mobiles</a></span>
     </div>
-  
- </div>
-      
-    <div class="link">
-    <a href="cart.html" class="cart-link">
-      🛒 Cart
-      <span class="cart-badge" id="cartCount">0</span>
-    </a>
-    <a href="signuppage.html">SignUp</a>
-    <a href="login.html">Login</a>
-  </div>
-
-      
-       </div>
-
- 
-
-<div class="category-container">
-  <div class="category-item">
-    
-     <img src="https://darlingretail.com/cdn/shop/files/1_6_e4917ae6-59ac-4c7e-83f8-9b7a9fdf68ea_600x.jpg?v=1753531644">
-   
-    <p class="category-text"  >  <a href="Mobile.html"> Mobiles </a></p>
-
-</div>
-  
-   <div class="category-item">
-     <img src="https://static.vecteezy.com/system/resources/thumbnails/072/094/140/small/customer-shopping-bag-portrait-smile-or-woman-with-retail-sale-product-discount-fashion-deal-or-mall-store-present-commerce-market-luxury-designer-gift-or-studio-girl-isolated-on-white-background-photo.jpg">
-   <p class="category-text"><a href="fashion.html"> Fashion </a>  </p>
-  </div>
- 
-    <div class="category-item">
-     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT0zxbuVyKh12p-RqWh7ZpzuKrnI_UEUQ5sg&s">
-  <p class="category-text"> <a href="electronics.html"> Electronics </a> </p> 
-  </div>
-   
-    <div class="category-item">
-     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWAcLvr1YK3Nshe5dR9F7ef4R02nQ5PmChyA&s">
-   <p class="category-text"> <a href="applications.html"> Appliances </a> </p>
-  </div>
-   
-     <div class="category-item">
-     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKEiIeDhUPTZNAti_pfMXsC44ZSsC51JzHNw&s">
-   <p class="category-text"> <a href="furniture.html"> Home and furniture </a> </p>
-  </div>
-
-
-    <div class="category-item">
-     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqDVLgjFqBv3wGeFe4OjNMcYbcMXbKISXBuw&s">
-   <p class="category-text"> <a href="grocery.html"> Grocerys </a></p>
-  </div>
-
-    <div class="category-item">
-     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR3k7862W8a8LmRgkIlVVhMsC_wh_JVvCV-A&s">
-   <p class="category-text"><a href="kids.html"> Kids </a> </p>
-  </div>
-
-    <div class="category-item">
-     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR80DDPIMSA_N7wzt9LlzQK7U6T0FlrYAV0RQ&s">
-   <p class="category-text"> <a href="tools.html"> Tools </a> </p>
-  </div>
-  
-
-</div>
-
-<div class="container">
-    
- <div class="smartbox">
-   <div class="smartphones">
-       <img src="https://exstatic-in.iqoo.com/Oz84QB3Wo0uns8j1/in/1763469237293/d29124bb80fed9cd925ffc356dd13012.jpg_w860-h860.webp">
-     </div>
-   <div class="pricetag">
-   <p style="font-weight:bold;"> Iqoo 15 5G </p>
-   <p> Just ₹15,000 </p>
-  <button class="cartbutton" onclick="addToCart('Iqoo 15 5G', 15000)">Add to Cart</button>
-   
-   </div>
- </div>
-
- <div class="smartbox">
-   <div class="smartphones">
-       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9AC-8IWMDcxDoQdEQOploTeqR5bpUdq6rdw&s">
-     </div>
-   <div class="pricetag">
-   <p style="font-weight:bold;"> Vivo X200 5G </p>
-   <p> ₹85,000 </p>
-  <button class="cartbutton" onclick="addToCart(' Vivo X200 5G', 85000)">Add to Cart</button> 
-   </div>
- </div>
- <div class="smartbox">
-   <div class="smartphones">
-       <img src="https://lh3.googleusercontent.com/LDj3-pgnVeoxCjF0FbgMAXHFZdqTNIIdET1MWMSwn1xcGC9lzI8zQwVSMWkjuw52ucZ1K8_HyhKMrBQcE5cE7ZEBZFbPV8vJGTZvUw=e365-pa-nu-s0">
-     </div>
-   <div class="pricetag">
-   <p style="font-weight:bold;"> Google Pixel 9A </p>
-   <p> ₹30,000 </p>
-   <button class="cartbutton" onclick="addToCart('Google Pixel 9A', 30000)">Add to Cart</button>
-   </div>
- </div>
-
- <div class="smartbox">
-   <div class="smartphones">
-       <img src="https://m.media-amazon.com/images/I/41+Jw8la8uL._SY300_SX300_QL70_FMwebp_.jpg">
-     </div>
-   <div class="pricetag">
-   <p style="font-weight:bold;"> Redmi Note 15 Pro </p>
-   <p> ₹25,000 </p>
-  <button class="cartbutton" onclick="addToCart('Redmi Note 15 Pro ', 25000)">Add to Cart</button> 
-   </div>
- </div>
-
-</div>
-
-
-</div>
-
-
-
-<div class="deals-section">
-
-  <div class="deals-img">
-    <div class="deals-text">
-      <p class="subtitle">Chill-ready winter fits</p>
-      <h2 class="title">Winter Fits</h2>
-      <p class="promo">Min. 55% Off</p>
+    <div class="cat-circle">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/072/094/140/small/customer-shopping-bag-portrait-smile-or-woman-with-retail-sale-product-discount-fashion-deal-or-mall-store-present-commerce-market-luxury-designer-gift-or-studio-girl-isolated-on-white-background-photo.jpg" alt="Fashion">
+      <span><a href="fashion.html">Fashion</a></span>
     </div>
-    <div class="deals-innerimg">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwWwvSV3wocujnTN-I_fP0xS4kZV_NKXz6vQ&s" alt="Winter Fits">
+    <div class="cat-circle">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT0zxbuVyKh12p-RqWh7ZpzuKrnI_UEUQ5sg&s" alt="Electronics">
+      <span><a href="electronics.html">Electronics</a></span>
+    </div>
+    <div class="cat-circle">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWAcLvr1YK3Nshe5dR9F7ef4R02nQ5PmChyA&s" alt="Appliances">
+      <span><a href="applications.html">Appliances</a></span>
+    </div>
+    <div class="cat-circle">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKEiIeDhUPTZNAti_pfMXsC44ZSsC51JzHNw&s" alt="Furniture">
+      <span><a href="furniture.html">Furniture</a></span>
+    </div>
+    <div class="cat-circle">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqDVLgjFqBv3wGeFe4OjNMcYbcMXbKISXBuw&s" alt="Grocery">
+      <span><a href="grocery.html">Grocery</a></span>
+    </div>
+    <div class="cat-circle">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR3k7862W8a8LmRgkIlVVhMsC_wh_JVvCV-A&s" alt="Kids">
+      <span><a href="kids.html">Kids</a></span>
+    </div>
+    <div class="cat-circle">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR80DDPIMSA_N7wzt9LlzQK7U6T0FlrYAV0RQ&s" alt="Tools">
+      <span><a href="tools.html">Tools</a></span>
     </div>
   </div>
 
-  <div class="deals-img">
-    <div class="deals-text">
-      <p class="subtitle">Libas, Indo & more</p>
-      <h2 class="title">Kurtha Sets</h2>
-      <p class="promo">Min. 65% Off</p>
+  <!-- Featured Products -->
+  <h2 class="section-heading">🔥 Trending Now</h2>
+  <div class="featured-grid">
+    <div class="featured-card">
+      <div class="img-wrap"><img src="https://exstatic-in.iqoo.com/Oz84QB3Wo0uns8j1/in/1763469237293/d29124bb80fed9cd925ffc356dd13012.jpg_w860-h860.webp" alt="Iqoo 15 5G"></div>
+      <div class="info">
+        <div class="fname">Iqoo 15 5G</div>
+        <div class="fprice">Just ₹15,000</div>
+        <button class="cart-btn" onclick="addToCart('Iqoo 15 5G', 15000)">Add to Cart</button>
+      </div>
     </div>
-    <div class="deals-innerimg">
-      <img src="https://m.media-amazon.com/images/I/71IB+dL5fXL._AC_UY1100_.jpg" alt="Kurtha Sets">
+    <div class="featured-card">
+      <div class="img-wrap"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9AC-8IWMDcxDoQdEQOploTeqR5bpUdq6rdw&s" alt="Vivo X200 5G"></div>
+      <div class="info">
+        <div class="fname">Vivo X200 5G</div>
+        <div class="fprice">₹85,000</div>
+        <button class="cart-btn" onclick="addToCart('Vivo X200 5G', 85000)">Add to Cart</button>
+      </div>
     </div>
-  </div>
-
-  <div class="deals-img">
-    <div class="deals-text">
-      <p class="subtitle">Campus, Asian & more</p>
-      <h2 class="title">Sports Shoes</h2>
-      <p class="promo">Min. 55% Off</p>
+    <div class="featured-card">
+      <div class="img-wrap"><img src="https://lh3.googleusercontent.com/LDj3-pgnVeoxCjF0FbgMAXHFZdqTNIIdET1MWMSwn1xcGC9lzI8zQwVSMWkjuw52ucZ1K8_HyhKMrBQcE5cE7ZEBZFbPV8vJGTZvUw=e365-pa-nu-s0" alt="Google Pixel 9A"></div>
+      <div class="info">
+        <div class="fname">Google Pixel 9A</div>
+        <div class="fprice">₹30,000</div>
+        <button class="cart-btn" onclick="addToCart('Google Pixel 9A', 30000)">Add to Cart</button>
+      </div>
     </div>
-    <div class="deals-innerimg">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrTyW_0KuBykfhJgALjf5d73pvbveQkTsjgw&s" alt="Sports Shoes">
-    </div>
-  </div>
-
-  <div class="deals-img">
-    <div class="deals-text">
-      <p class="subtitle">Introduction to World</p>
-      <h2 class="title">Student Laptop</h2>
-      <p class="promo">Min. 35% Off</p>
-    </div>
-    <div class="deals-innerimg">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS06GG17gE-pbddpae2vFlaUh8o7uWRxQxrTw&s" alt="Student Laptop">
-    </div>
-  </div>
-
-  <div class="deals-img">
-    <div class="deals-text">
-      <p class="subtitle">Make-up essentials</p>
-      <h2 class="title">Make Up Sets</h2>
-      <p class="promo">Min. 65% Off</p>
-    </div>
-    <div class="deals-innerimg">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo-IM9jbgBErSE4Jc20ibHHl2dGQklOR-1RA&s" alt="Make Up Sets">
+    <div class="featured-card">
+      <div class="img-wrap"><img src="https://m.media-amazon.com/images/I/41+Jw8la8uL._SY300_SX300_QL70_FMwebp_.jpg" alt="Redmi Note 15 Pro"></div>
+      <div class="info">
+        <div class="fname">Redmi Note 15 Pro</div>
+        <div class="fprice">₹25,000</div>
+        <button class="cart-btn" onclick="addToCart('Redmi Note 15 Pro', 25000)">Add to Cart</button>
+      </div>
     </div>
   </div>
 
-  <div class="deals-img">
-    <div class="deals-text">
-      <p class="subtitle">Almonds, Cashews & more</p>
-      <h2 class="title">Dry Fruits</h2>
-      <p class="promo">Min. 55% Off</p>
+  <!-- Deals Section -->
+  <h2 class="section-heading">🏷️ Today's Best Deals</h2>
+  <div class="deals-section">
+    <div class="deals-img">
+      <div class="deals-text">
+        <p class="subtitle">Chill-ready winter fits</p>
+        <h2 class="title">Winter Fits</h2>
+        <p class="promo">Min. 55% Off</p>
+      </div>
+      <div class="deals-innerimg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwWwvSV3wocujnTN-I_fP0xS4kZV_NKXz6vQ&s" alt="Winter Fits">
+      </div>
     </div>
-    <div class="deals-innerimg">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzncZ-YKV2WsHfREdeccGfLxJ-XN2uKyOs9g&s" alt="Dry Fruits">
+    <div class="deals-img">
+      <div class="deals-text">
+        <p class="subtitle">Libas, Indo & more</p>
+        <h2 class="title">Kurtha Sets</h2>
+        <p class="promo">Min. 65% Off</p>
+      </div>
+      <div class="deals-innerimg">
+        <img src="https://m.media-amazon.com/images/I/71IB+dL5fXL._AC_UY1100_.jpg" alt="Kurtha Sets">
+      </div>
+    </div>
+    <div class="deals-img">
+      <div class="deals-text">
+        <p class="subtitle">Campus, Asian & more</p>
+        <h2 class="title">Sports Shoes</h2>
+        <p class="promo">Min. 55% Off</p>
+      </div>
+      <div class="deals-innerimg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrTyW_0KuBykfhJgALjf5d73pvbveQkTsjgw&s" alt="Sports Shoes">
+      </div>
+    </div>
+    <div class="deals-img">
+      <div class="deals-text">
+        <p class="subtitle">Introduction to World</p>
+        <h2 class="title">Student Laptop</h2>
+        <p class="promo">Min. 35% Off</p>
+      </div>
+      <div class="deals-innerimg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS06GG17gE-pbddpae2vFlaUh8o7uWRxQxrTw&s" alt="Student Laptop">
+      </div>
+    </div>
+    <div class="deals-img">
+      <div class="deals-text">
+        <p class="subtitle">Make-up essentials</p>
+        <h2 class="title">Make Up Sets</h2>
+        <p class="promo">Min. 65% Off</p>
+      </div>
+      <div class="deals-innerimg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo-IM9jbgBErSE4Jc20ibHHl2dGQklOR-1RA&s" alt="Make Up Sets">
+      </div>
+    </div>
+    <div class="deals-img">
+      <div class="deals-text">
+        <p class="subtitle">Almonds, Cashews & more</p>
+        <h2 class="title">Dry Fruits</h2>
+        <p class="promo">Min. 55% Off</p>
+      </div>
+      <div class="deals-innerimg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzncZ-YKV2WsHfREdeccGfLxJ-XN2uKyOs9g&s" alt="Dry Fruits">
+      </div>
     </div>
   </div>
 
-</div>
-
-  
-</div>
-
-
-<script>
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  
-  function addToCart(name,price){
-   let product={
-       name,
-       price
-      };
-   cart.push(product);
-   
-   localStorage.setItem("cart",JSON.stringify(cart));
-
-   alert(name+ " added to cart!");
-
-}
-
-
-</script>
-   
-
-
-
-      
+  <script src="main.js"></script>
 </body>
 </html>

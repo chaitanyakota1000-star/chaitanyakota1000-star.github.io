@@ -1,129 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login Page</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login to your ShopEase account to access your cart, orders, and exclusive deals.">
+  <title>Login — ShopEase</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #85edbb, #e2e8f0);
-    }
-
-    .background-img{
-      width:100vw;
-      height:100vh;
-     
-      background-repeat:no-repeat;
-      background-size:cover;
-      display:flex; 
-      justify-content:center;
-      align-items:center;
-    }
-
-    .box{
-      height:450px;
-      width:450px;
-      background-color:white;
-      border-radius:5px;
-      padding:25px;
-      text-align:center;
-      font-size:18px;
-    }
-
-    h1{
-      color:#eba51a;
-      margin-bottom:20px;
-    }
-
-    label{
-      display:block;
-      margin-top:15px;
-    }
-
-    input{
-      height:30px;
-      width:60%;
-      margin:8px 0;
-      border-radius:4px;
-      border:1px solid #ccc;
-      padding:5px;
-    }
-
-    .forgot{
-      margin-top:10px;
-      font-size:14px;
-    }
-
-    .forgot a{
-      text-decoration:none;
-      color:#1aebd6;
-    }
-
-    button{
-      margin-top:20px;
-      padding:8px 15px;
-      background-color:#ccdce8;
-      border:2px solid black;
-      cursor:pointer;
-    }
-
-    button:hover{
-      background-color:#b5c9d6;
-    }
+    body { margin: 0; min-height: 100vh; background: linear-gradient(135deg, #85edbb, #e2e8f0); display: flex; justify-content: center; align-items: center; }
   </style>
 </head>
-
 <body>
 
-<div class="background-img">
-  <div class="box">
-    <h1>Login Page</h1>
+<div class="auth-card">
+  <h1>Welcome Back</h1>
+  <p class="auth-subtitle">Don't have an account? <a href="signuppage.html">Sign up here</a></p>
 
-    <form onsubmit="return loginValidation()">
-      
-      <label for="email">Enter Email Id:</label>
-      <input id="email" name="email" type="text">
+  <form id="loginForm" onsubmit="return handleLogin(event)">
+    <div class="form-group" id="fg-email">
+      <label for="email">Email Address</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required>
+      <div class="field-error" id="err-email"></div>
+    </div>
 
-      <label for="password">Enter Password:</label>
-      <input id="password" name="password" type="password">
+    <div class="form-group" id="fg-password">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="Enter your password" required>
+      <div class="field-error" id="err-password"></div>
+    </div>
 
-      <p class="forgot">
-        <a href="#">Forgot password?</a>
-      </p>
+    <button type="submit" class="auth-btn" id="loginBtn">Login →</button>
+  </form>
 
-      <button type="submit">Login</button>
-
-    </form>     
+  <div class="auth-link">
+    <a href="index.html">← Back to Home</a>
   </div>
 </div>
 
+<div id="toast-container"></div>
+<script src="main.js"></script>
 <script>
-function loginValidation(){
-  let email = document.getElementById("email");
-  let password = document.getElementById("password");
+  // Redirect if already logged in
+  if (getSession()) {
+    window.location.href = 'experiment1on_capstone.html';
+  }
 
-  let rege = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  async function handleLogin(e) {
+    e.preventDefault();
 
-  if(email.value.trim()=="" || password.value.trim()==""){
-    alert("No blank values allowed");
+    // clear errors
+    document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const btn = document.getElementById('loginBtn');
+
+    // Client-side validation
+    let valid = true;
+    const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!email || !emailReg.test(email)) {
+      setFieldError('fg-email', 'err-email', 'Please enter a valid email address');
+      valid = false;
+    }
+    if (!password || password.length < 5) {
+      setFieldError('fg-password', 'err-password', 'Password must be at least 5 characters');
+      valid = false;
+    }
+    if (!valid) return false;
+
+    btn.disabled = true;
+    btn.textContent = 'Logging in…';
+
+    const result = await apiLogin({ email, password });
+
+    btn.disabled = false;
+    btn.textContent = 'Login →';
+
+    if (result.success) {
+      setSession(result.user);
+      showToast('Welcome back, ' + result.user.name + '! 🎉');
+      addNotification('Logged In', 'Welcome back, ' + result.user.name + '!', '👋', 'green');
+      setTimeout(() => window.location.href = 'experiment1on_capstone.html', 800);
+    } else {
+      showToast(result.message, 'error');
+    }
+
     return false;
   }
 
-  if(password.value.length < 5){
-    alert("Password must be at least 5 characters");
-    return false;
+  function setFieldError(groupId, errorId, message) {
+    document.getElementById(groupId).classList.add('has-error');
+    const errEl = document.getElementById(errorId);
+    errEl.textContent = message;
+    errEl.style.display = 'block';
   }
-
-  if(!rege.test(email.value)){
-    alert("Invalid email format");
-    return false;
-  }
-
-  alert("Login successful!");
-  return false;
-}
 </script>
-
 </body>
 </html>

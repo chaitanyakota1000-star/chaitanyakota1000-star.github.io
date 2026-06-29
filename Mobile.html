@@ -1,418 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile -ShopNew </title>
-
-<style>
-@media(max-width:768px){
-
-  .deals-section{
-    display: flex;
-    overflow-x: auto;
-    gap: 12px;
-    padding: 10px;
-    scroll-snap-type: x mandatory;
-  }
-
-  .deals-img{
-    min-width: 85%;
-    height: 160px;
-    flex-shrink: 0;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    scroll-snap-align: start;
-  }
-
-  .deals-text{
-    position: static;
-    transform: none;
-    width: 60%;
-    padding: 10px;
-  }
-
-  .title{
-    font-size: 18px;
-  }
-
-  .promo{
-    font-size: 14px;
-  }
-
-  .deals-innerimg{
-    position: static;
-    width: 90px;
-    height: 90px;
-  }
-
-  .deals-innerimg img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-}
-
-body {
-  background: linear-gradient(135deg, #85edbb, #e2e8f0);
-}
-
-
-.box{
-   background: linear-gradient(135deg, #85edbb, #e2e8f0);
-   height:auto;
-   width:100%;
-   justify-content:space-between;
-   gap: 50px;
-   flex-wrap:wrap;
-   align-items:center;
-   display: flex;
-   position:sticky;
-   top:0;
-   z-index:100;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
-   
-
-}
- .logo-text {
-      font-size: 22px;
-      font-weight: bold;
-      color: #1a1a1a;
-    }
-
-
-  .link {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .link a {
-      color: #1a1a1a;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-    .link a:hover {
-      background: rgba(255,255,255,0.5);
-      color: #2a9d5c;
-    }
-    .cart-link { 
-      position: relative;  
-}
-    .cart-badge {
-      position: absolute;
-      top: 2px; right: 6px;
-      background: #e74c3c;
-      color: white;
-      font-size: 10px;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 16px; height: 16px;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-
-.searchbar {
-      display: flex;
-      align-items: center;
-      background: #f7f9fa;
-      border-radius: 10px;
-      padding: 6px 12px;
-      gap: 8px;
-    }
- .searchbar-wrapper {
-      flex: 1;
-      max-width: 400px;
-      padding: 2px;
-      border-radius: 12px;
-      background: linear-gradient(to right, #38c97d, #6b8cba);
-    }
-
-.search-input{
-  border:none;
-  width:100%;
-  max-width:500px;
-  height:25px;
-  outline:none;
-   border-radius:30px ;
-  background-color:#f7f9fa;
-text-align:center;
-   
-  
-}
-.slidebar{
-    cursor:pointer;
-    padding:8px 12px;
-    border-radius:20px;
-    width:200px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: 0.3s ease;
-    border: none;
-    outline: none;
-    background:none;
-}
-
-
-
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
-  padding: 15px;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-}
-
-
-.name {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 8px 0;
-}
-
-.price {
-  color: #10b981;
-  font-weight: bold;
-}
-
-button {
-  margin-top: 8px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(to right, #6366f1, #3b82f6);
-  color: white;
-  cursor: pointer;
-}
-</style>
-</head>
-
-<body>
-
- <div class="box">
-
-        <span class="logo-text">ShopEase</span>
-
-
-
-       <div class="searchbar-wrapper">
-    <div class="searchbar">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" id="search" type="text" placeholder="Search for Products, Brands and More" name="search"/>
-    </div>
-  
- </div>
-      
-    <div class="link">
-    <a href="cart.html" class="cart-link">
-      🛒 Cart
-      <span class="cart-badge" id="cartCount">0</span>
-    </a>
-    <a href="signuppage.html">SignUp</a>
-    <a href="login.html">Login</a>
-  </div>
-
-      
-       </div>
-
- 
-<div class="container">
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmhjYPw3jMjyqy42UXqBFCnrsS1OoRI4Wrqg&s">
-    <div class="name">iPhone 15</div>
-    <div class="price">₹79,999</div>
-    <button onclick="addToCart('iPhone 15', 79999)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuYNaYWc5_iK47UHChYtRzCzPpAnKUFUZ2Sg&s">
-    <div class="name">Samsung S23</div>
-    <div class="price">₹74,999</div>
-    <button onclick="addToCart('Samsung S23', 74999)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://m.media-amazon.com/images/I/71YzJwmRFCL._AC_UF1000,1000_QL80_.jpg">
-    <div class="name">OnePlus 12</div>
-    <div class="price">₹64,999</div>
-    <button onclick="addToCart('OnePlus 12', 64999)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://suprememobiles.in/cdn/shop/files/8_90a82f95-2bac-489c-a44d-5b1c416aea76.webp?v=1770188833">
-    <div class="name">Realme GT</div>
-    <div class="price">₹35,999</div>
-    <button onclick="addToCart('Realme GT', 35999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg4y5HDBeaf8Eg0ZseunfqloLou0tjqehqWA&s">
-    <div class="name">Vivo V40</div>
-    <div class="price">₹35,999</div>
-    <button onclick="addToCart('Vivo V40 ', 35999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://image.cdn.shpy.in/301826/1-1708520956671.jpeg?width=600&format=webp">
-    <div class="name">Iphone 15 pro max</div>
-    <div class="price">₹1,19,999</div>
-    <button onclick="addToCart('iPhone 15 pro max', 119999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://cdn.beebom.com/mobile/realme-c53-front-and-back-2.png">
-    <div class="name">Realme c53</div>
-    <div class="price">₹10,999</div>
-    <button onclick="addToCart('Realme c53', 10999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUTUTxMLCed9Vcqla4SY64BvllfhOcVyxmdw&s">
-    <div class="name">vivo v50</div>
-    <div class="price">₹35,999</div>
-    <button onclick="addToCart('vivo v50', 35999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7OlgYtzuChh2KwO32DXVirq7PlpSgPEK_aA&s">
-    <div class="name">Iqoo Neo 10r</div>
-    <div class="price">₹20,000</div>
-    <button onclick="addToCart('Iqoo Neo 10r', 20000)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcHwVQtb0ZoJfSKRdTCe0Smx5unT5hfgVOpA&s">
-    <div class="name">poco f7</div>
-    <div class="price">₹35,999</div>
-    <button onclick="addToCart('poco f7', 79999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://iplanet.one/cdn/shop/files/iPhone_16_White_PDP_Image_Position_1__en-IN_b889058d-429a-4e56-911c-2c1646753270.jpg?v=1727247900&width=1445">
-    <div class="name">Iphone 16</div>
-    <div class="price">₹1,35,999</div>
-    <button onclick="addToCart('iPhone 16', 135999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWdsHfbm9o1v0Nkji4eD8Nal5MmLum6StMVg&s">
-    <div class="name">vivo x300</div>
-    <div class="price">₹1,15,000</div>
-    <button onclick="addToCart('vivo x300', 115000)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzH65b1rLQ8Qkc0dFSyNUCjf_RnHs1KiGPcA&s">
-    <div class="name">Iqoo 13</div>
-    <div class="price">₹45,000</div>
-    <button onclick="addToCart('Iqoo 13', 45000)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=500,quality=75/product/Google-pixel-10-5g-indigo-12gb-256gb-Back-View.png">
-    <div class="name">pixel 10 5G</div>
-    <div class="price">₹75,999</div>
-    <button onclick="addToCart('pixel 10', 75999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://images.samsung.com/is/image/samsung/p6pim/in/2401/gallery/in-galaxy-s24-s928-492660-sm-s928blbcins-539573557?$720_576_JPG$">
-    <div class="name">Samsung s24</div>
-    <div class="price">₹76,999</div>
-    <button onclick="addToCart('Samsung s24', 76999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJVAB49YF0hXwKr5uUSPpwvy48mI3qQPlQag&s">
-    <div class="name">vivo v50e</div>
-    <div class="price">₹30,999</div>
-    <button onclick="addToCart('vivo v50e', 30999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_vPF1OfT1CPfE5soLZQdu2of9s7-wRy1PtA&s">
-    <div class="name">Iqoo neo10r</div>
-    <div class="price">₹35,999</div>
-   <button onclick="addToCart('Iqoo neo10r', 35999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsPHkfZEkBSMUwD2V5iryzmTMtDfnAHwnimA&s">
-    <div class="name">Iphone 13</div>
-    <div class="price">₹68,999</div>
-    <button onclick="addToCart('iPhone 13', 68999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhCfFu8IousT2tp5M-Uv7dqhTQMbK62ur-mw&s">
-    <div class="name">Vivo v29</div>
-    <div class="price">₹38,999</div>
-    <button onclick="addToCart('Vivo v29', 38999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgkz29oJrTN4O_qdyF7bD-fjGf2W37bCqjxw&s">
-    <div class="name">Vivo v25</div>
-    <div class="price">₹30,999</div>
-    <button onclick="addToCart('vivo v25', 30999)">Add to cart</button>
-  </div>
-<div class="card">
-    <img src="https://bankofelectronics.com/557-medium_default/google-pixel-7-5g-obisidian-8gb-ram128gb-storage.jpg">
-    <div class="name">pixel 7</div>
-    <div class="price">₹33,999</div>
-    <button onclick="addToCart('pixel 7', 33999)">Add to cart</button>
-  </div>
-
-</div>
-
-<script>
-function addToCart(name, price) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-   
-    let existingItem = cart.find(item => item.name === name);
-
-    if (existingItem) {
-        existingItem.quantity = (existingItem.quantity || 1) + 1;
-    } else {
-        cart.push({
-            name: name,
-            price: price,
-            quantity: 1
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop the latest smartphones at ShopEase. iPhone, Samsung, OnePlus, Vivo, and more at unbeatable prices.">
+    <title>Mobiles — ShopEase</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #85edbb, #e2e8f0);
         }
-);
-    }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-    alert(name + " added to cart!");
-}
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmhjYPw3jMjyqy42UXqBFCnrsS1OoRI4Wrqg&s" alt="iPhone 15">
+            <div class="product-name">iPhone 15</div>
+            <div class="product-price">₹79,999</div>
+            <button class="add-cart-btn" onclick="addToCart('iPhone 15', 79999)">Add to Cart</button>
+        </div>
 
-function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let count = 0;
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuYNaYWc5_iK47UHChYtRzCzPpAnKUFUZ2Sg&s" alt="Samsung S23">
+            <div class="product-name">Samsung S23</div>
+            <div class="product-price">₹74,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Samsung S23', 74999)">Add to Cart</button>
+        </div>
 
-    cart.forEach(item => {
-        count += item.quantity || 1;
-    });
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71YzJwmRFCL._AC_UF1000,1000_QL80_.jpg" alt="OnePlus 12">
+            <div class="product-name">OnePlus 12</div>
+            <div class="product-price">₹64,999</div>
+            <button class="add-cart-btn" onclick="addToCart('OnePlus 12', 64999)">Add to Cart</button>
+        </div>
 
-    document.getElementById("cartCount").innerText = count;
-}
+        <div class="product-card">
+            <img src="https://suprememobiles.in/cdn/shop/files/8_90a82f95-2bac-489c-a44d-5b1c416aea76.webp?v=1770188833" alt="Realme GT">
+            <div class="product-name">Realme GT</div>
+            <div class="product-price">₹35,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Realme GT', 35999)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg4y5HDBeaf8Eg0ZseunfqloLou0tjqehqWA&s" alt="Vivo V40">
+            <div class="product-name">Vivo V40</div>
+            <div class="product-price">₹35,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Vivo V40', 35999)">Add to Cart</button>
+        </div>
 
-updateCartCount();
-</script>
+        <div class="product-card">
+            <img src="https://image.cdn.shpy.in/301826/1-1708520956671.jpeg?width=600&format=webp" alt="iPhone 15 Pro Max">
+            <div class="product-name">iPhone 15 Pro Max</div>
+            <div class="product-price">₹1,19,999</div>
+            <button class="add-cart-btn" onclick="addToCart('iPhone 15 Pro Max', 119999)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://cdn.beebom.com/mobile/realme-c53-front-and-back-2.png" alt="Realme C53">
+            <div class="product-name">Realme C53</div>
+            <div class="product-price">₹10,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Realme C53', 10999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUTUTxMLCed9Vcqla4SY64BvllfhOcVyxmdw&s" alt="Vivo V50">
+            <div class="product-name">Vivo V50</div>
+            <div class="product-price">₹35,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Vivo V50', 35999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_vPF1OfT1CPfE5soLZQdu2of9s7-wRy1PtA&s" alt="Iqoo Neo 10R">
+            <div class="product-name">Iqoo Neo 10R</div>
+            <div class="product-price">₹35,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Iqoo Neo 10R', 35999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsPHkfZEkBSMUwD2V5iryzmTMtDfnAHwnimA&s" alt="iPhone 13">
+            <div class="product-name">iPhone 13</div>
+            <div class="product-price">₹68,999</div>
+            <button class="add-cart-btn" onclick="addToCart('iPhone 13', 68999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhCfFu8IousT2tp5M-Uv7dqhTQMbK62ur-mw&s" alt="Vivo V29">
+            <div class="product-name">Vivo V29</div>
+            <div class="product-price">₹38,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Vivo V29', 38999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgkz29oJrTN4O_qdyF7bD-fjGf2W37bCqjxw&s" alt="Vivo V25">
+            <div class="product-name">Vivo V25</div>
+            <div class="product-price">₹30,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Vivo V25', 30999)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://bankofelectronics.com/557-medium_default/google-pixel-7-5g-obisidian-8gb-ram128gb-storage.jpg" alt="Pixel 7">
+            <div class="product-name">Pixel 7</div>
+            <div class="product-price">₹33,999</div>
+            <button class="add-cart-btn" onclick="addToCart('Pixel 7', 33999)">Add to Cart</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>

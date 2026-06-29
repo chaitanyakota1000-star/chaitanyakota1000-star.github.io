@@ -1,386 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tools -ShopNew </title>
-
-<style>
-body {
-  background: linear-gradient(135deg, #85edbb, #e2e8f0);
-}
-
-
-.box{
-   background: linear-gradient(135deg, #85edbb, #e2e8f0);
-   height:auto;
-   width:100%;
-   justify-content:space-between;
-   gap: 50px;
-   flex-wrap:wrap;
-   align-items:center;
-   display: flex;
-   position:sticky;
-   top:0;
-   z-index:100;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
-   
-
-}
- .logo-text {
-      font-size: 22px;
-      font-weight: bold;
-      color: #1a1a1a;
-    }
-
-
-  .link {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .link a {
-      color: #1a1a1a;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-    .link a:hover {
-      background: rgba(255,255,255,0.5);
-      color: #2a9d5c;
-    }
-    .cart-link { 
-      position: relative;  
-}
-    .cart-badge {
-      position: absolute;
-      top: 2px; right: 6px;
-      background: #e74c3c;
-      color: white;
-      font-size: 10px;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 16px; height: 16px;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-
-.searchbar {
-      display: flex;
-      align-items: center;
-      background: #f7f9fa;
-      border-radius: 10px;
-      padding: 6px 12px;
-      gap: 8px;
-    }
- .searchbar-wrapper {
-      flex: 1;
-      max-width: 400px;
-      padding: 2px;
-      border-radius: 12px;
-      background: linear-gradient(to right, #38c97d, #6b8cba);
-    }
-
-.search-input{
-  border:none;
-  width:100%;
-  max-width:500px;
-  height:25px;
-  outline:none;
-   border-radius:30px ;
-  background-color:#f7f9fa;
-text-align:center;
-   
-  
-}
-.slidebar{
-    cursor:pointer;
-    padding:8px 12px;
-    border-radius:20px;
-    width:200px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: 0.3s ease;
-    border: none;
-    outline: none;
-    background:none;
-}
-
-
-
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
-  padding: 15px;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-}
-
-
-.name {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 8px 0;
-}
-
-.price {
-  color: #10b981;
-  font-weight: bold;
-}
-
-button {
-  margin-top: 8px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(to right, #6366f1, #3b82f6);
-  color: white;
-  cursor: pointer;
-}
-</style>
-</head>
-
-<body>
-
- <div class="box">
-
-        <span class="logo-text">ShopEase</span>
-
-
-
-       <div class="searchbar-wrapper">
-    <div class="searchbar">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" id="search" type="text" placeholder="Search for Products, Brands and More" name="search"/>
-    </div>
-  
- </div>
-      
-    <div class="link">
-    <a href="cart.html" class="cart-link">
-      🛒 Cart
-      <span class="cart-badge" id="cartCount">0</span>
-    </a>
-    <a href="signuppage.html">SignUp</a>
-    <a href="login.html">Login</a>
-  </div>
-
-      
-       </div>
-
- 
-<div class="container">
-
- <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5HyImJBmFl0pPwT0tZc1dnKL2vP8KH6ZjUg&s">
-    <div class="name">Power Drill</div>
-    <div class="price">₹4,200</div>
-    <button onclick="addToCart('Power Drill', 4200)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_vk0AXLZXNW34SNjrwZoV1wsjmQht6t0sdQ&s">
-    <div class="name">Claw Hammer</div>
-    <div class="price">₹450</div>
-    <button onclick="addToCart('Claw Hammer', 450)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=400">
-    <div class="name">Screwdriver Set</div>
-    <div class="price">₹899</div>
-    <button onclick="addToCart('Screwdriver Set', 899)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=400">
-    <div class="name">Wrench Kit</div>
-    <div class="price">₹1,550</div>
-    <button onclick="addToCart('Wrench Kit', 1550)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWLANt4ygeNv1Sx1_es0jxYG_7vUdB9DPY8A&s">
-    <div class="name">Tape Measure</div>
-    <div class="price">₹299</div>
-    <button onclick="addToCart('Tape Measure', 299)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400">
-    <div class="name">Electric Saw</div>
-    <div class="price">₹5,800</div>
-    <button onclick="addToCart('Electric Saw', 5800)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400">
-    <div class="name">Pliers Set</div>
-    <div class="price">₹650</div>
-    <button onclick="addToCart('Pliers Set', 650)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1581147036324-c17ac41dfa6c?w=400">
-    <div class="name">Spirit Level</div>
-    <div class="price">₹550</div>
-    <button onclick="addToCart('Spirit Level', 550)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=400">
-    <div class="name">Work Gloves</div>
-    <div class="price">₹350</div>
-    <button onclick="addToCart('Work Gloves', 350)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400">
-    <div class="name">Safety Helmet</div>
-    <div class="price">₹799</div>
-    <button onclick="addToCart('Safety Helmet', 799)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1513467655676-561b7d489a88?w=400">
-    <div class="name">Hand Saw</div>
-    <div class="price">₹480</div>
-    <button onclick="addToCart('Hand Saw', 480)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc4P6efds4M6JR1f5QouNfID5LpXyqgk_iKQ&s">
-    <div class="name">Tool Box</div>
-    <div class="price">₹2,200</div>
-    <button onclick="addToCart('Tool Box', 2200)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnbmK8wo01tVKkmD64jAKexfDFHS608c44A&s">
-    <div class="name">Paint Brush Set</div>
-    <div class="price">₹399</div>
-    <button onclick="addToCart('Paint Brush Set', 399)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYl5wclLJlE_EryeYGEKDRAm-lYLB0PYx6jg&s">
-    <div class="name">Wire Stripper</div>
-    <div class="price">₹720</div>
-    <button onclick="addToCart('Wire Stripper', 720)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1608613304899-ea8098577e38?w=400">
-    <div class="name">Angle Grinder</div>
-    <div class="price">₹3,450</div>
-    <button onclick="addToCart('Angle Grinder', 3450)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1620912189865-1e8a33da4c5e?w=400">
-    <div class="name">Allen Key Set</div>
-    <div class="price">₹420</div>
-    <button onclick="addToCart('Allen Key Set', 420)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1531265726475-52ad60219627?w=400">
-    <div class="name">Chisel Set</div>
-    <div class="price">₹1,150</div>
-    <button onclick="addToCart('Chisel Set', 1150)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1516216628859-9bccecab13ca?w=400">
-    <div class="name">Flashlight</div>
-    <div class="price">₹850</div>
-    <button onclick="addToCart('Flashlight', 850)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1578319439584-104c94d37305?w=400">
-    <div class="name">Sanding Paper</div>
-    <div class="price">₹150</div>
-    <button onclick="addToCart('Sanding Paper', 150)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=400">
-    <div class="name">Utility Knife</div>
-    <div class="price">₹250</div>
-    <button onclick="addToCart('Utility Knife', 250)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjGnNIwJfNfbw--9OFgbEPKJV-1QX2faGPjQ&s">
-    <div class="name">C-Clamp</div>
-    <div class="price">₹580</div>
-    <button onclick="addToCart('C-Clamp', 580)">Add to cart</button>
-  </div>
-  
-</div>
-
-<script>
-function addToCart(name, price) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-   
-    let existingItem = cart.find(item => item.name === name);
-
-    if (existingItem) {
-        existingItem.quantity = (existingItem.quantity || 1) + 1;
-    } else {
-        cart.push({
-            name: name,
-            price: price,
-            quantity: 1
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop power tools and hand tools at ShopEase — drills, hammers, saws, and more for DIY projects.">
+    <title>Tools — ShopEase</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #85edbb, #e2e8f0);
         }
-);
-    }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-    alert(name + " added to cart!");
-}
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5HyImJBmFl0pPwT0tZc1dnKL2vP8KH6ZjUg&s" alt="Power Drill">
+            <div class="product-name">Power Drill</div>
+            <div class="product-price">₹4,200</div>
+            <button class="add-cart-btn" onclick="addToCart('Power Drill', 4200)">Add to Cart</button>
+        </div>
 
-function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let count = 0;
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_vk0AXLZXNW34SNjrwZoV1wsjmQht6t0sdQ&s" alt="Claw Hammer">
+            <div class="product-name">Claw Hammer</div>
+            <div class="product-price">₹450</div>
+            <button class="add-cart-btn" onclick="addToCart('Claw Hammer', 450)">Add to Cart</button>
+        </div>
 
-    cart.forEach(item => {
-        count += item.quantity || 1;
-    });
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=400" alt="Screwdriver Set">
+            <div class="product-name">Screwdriver Set</div>
+            <div class="product-price">₹899</div>
+            <button class="add-cart-btn" onclick="addToCart('Screwdriver Set', 899)">Add to Cart</button>
+        </div>
 
-    document.getElementById("cartCount").innerText = count;
-}
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=400" alt="Wrench Kit">
+            <div class="product-name">Wrench Kit</div>
+            <div class="product-price">₹1,550</div>
+            <button class="add-cart-btn" onclick="addToCart('Wrench Kit', 1550)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWLANt4ygeNv1Sx1_es0jxYG_7vUdB9DPY8A&s" alt="Tape Measure">
+            <div class="product-name">Tape Measure</div>
+            <div class="product-price">₹299</div>
+            <button class="add-cart-btn" onclick="addToCart('Tape Measure', 299)">Add to Cart</button>
+        </div>
 
-updateCartCount();
-</script>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400" alt="Electric Saw">
+            <div class="product-name">Electric Saw</div>
+            <div class="product-price">₹5,800</div>
+            <button class="add-cart-btn" onclick="addToCart('Electric Saw', 5800)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400" alt="Pliers Set">
+            <div class="product-name">Pliers Set</div>
+            <div class="product-price">₹650</div>
+            <button class="add-cart-btn" onclick="addToCart('Pliers Set', 650)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1581147036324-c17ac41dfa6c?w=400" alt="Spirit Level">
+            <div class="product-name">Spirit Level</div>
+            <div class="product-price">₹550</div>
+            <button class="add-cart-btn" onclick="addToCart('Spirit Level', 550)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=400" alt="Work Gloves">
+            <div class="product-name">Work Gloves</div>
+            <div class="product-price">₹350</div>
+            <button class="add-cart-btn" onclick="addToCart('Work Gloves', 350)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400" alt="Safety Helmet">
+            <div class="product-name">Safety Helmet</div>
+            <div class="product-price">₹799</div>
+            <button class="add-cart-btn" onclick="addToCart('Safety Helmet', 799)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc4P6efds4M6JR1f5QouNfID5LpXyqgk_iKQ&s" alt="Tool Box">
+            <div class="product-name">Tool Box</div>
+            <div class="product-price">₹2,200</div>
+            <button class="add-cart-btn" onclick="addToCart('Tool Box', 2200)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1608613304899-ea8098577e38?w=400" alt="Angle Grinder">
+            <div class="product-name">Angle Grinder</div>
+            <div class="product-price">₹3,450</div>
+            <button class="add-cart-btn" onclick="addToCart('Angle Grinder', 3450)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1531265726475-52ad60219627?w=400" alt="Chisel Set">
+            <div class="product-name">Chisel Set</div>
+            <div class="product-price">₹1,150</div>
+            <button class="add-cart-btn" onclick="addToCart('Chisel Set', 1150)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1516216628859-9bccecab13ca?w=400" alt="Flashlight">
+            <div class="product-name">Flashlight</div>
+            <div class="product-price">₹850</div>
+            <button class="add-cart-btn" onclick="addToCart('Flashlight', 850)">Add to Cart</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>

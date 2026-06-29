@@ -1,170 +1,42 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce Website</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-        }
-
-        .bg-image {
-            min-height: 100vh;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                              url("https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg");
-            background-size: cover;
-            background-position: center;
-        }
-
-        .box {
-            display: flex;
-            align-items: center;
-            min-height: 60px;
-            background-color: #74a878;
-            justify-content: space-between;
-            padding: 5px 15px;
-            flex-wrap: wrap; 
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .logo img {
-            height: 35px;
-            width: 35px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-
-        .logo-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            white-space: nowrap;
-        }
-
-        .link {
-            display: flex;
-            flex-wrap: nowrap;
-        }
-
-        .link a {
-            color: white;
-            font-size: 14px;
-            padding: 5px 8px;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .img-text {
-            text-align: left;
-            padding: 100px 50px;
-            color: white;
-        }
-
-        .img-text h1 {
-            font-size: 50px;
-            margin: 0;
-        }
-
-        .img-text p {
-            font-size: 20px;
-            max-width: 600px;
-        }
-
-        .button1 {
-            padding: 12px 25px;
-            background-color: red;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-            margin-top: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .box {
-                justify-content: space-around;
-            }
-
-            .logo-text {
-                font-size: 16px;
-            }
-
-            .link a {
-                font-size: 12px;
-                padding: 5px;
-            }
-
-            .img-text {
-                padding: 60px 20px;
-                text-align: center;
-            }
-
-            .img-text h1 {
-                font-size: 28px;
-            }
-
-            .img-text p {
-                font-size: 15px;
-            }
-
-            .button1 {
-                width: 100%;
-                margin-right: 0;
-                display: block;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .logo-text {
-                display: none; 
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopEase — Your one-stop premium online shopping destination. Explore incredible deals on electronics, fashion, home and more.">
+  <title>ShopEase — Premium Online Shopping</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body, html { margin: 0; padding: 0; overflow-x: hidden; }
+    .bg-image {
+      min-height: 100vh;
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url("https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
 </head>
-
 <body>
 
-    <div class="bg-image">
+  <div class="bg-image">
+    <!-- Dynamic Navbar -->
+    <div id="navbar-container"></div>
 
-        <div class="box">
-            <div class="logo">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXe3wDOXgE9lJNzS8wYVSnR4AyEhLAur7-HA&s" alt="Logo">
-                <span class="logo-text">ShopNew</span>
-            </div>
-
-            <div class="link">
-                <a href="experiment1on_capstone.html">Home</a>
-                <a href="contactus.html">Contact</a>
-                <a href="login.html">Login</a>
-            </div>
-        </div>
-
-        <div class="img-text">
-            <h1>Sale 50% off on products!</h1>
-            <h1>On everything</h1>
-            <p>
-                A sale is a special event where products are offered at lower prices than usual to attract more customers. 
-                During a sale, shops and online stores give discounts on items like clothes, electronics, and groceries.
-            </p>
-
-            <a href="experiment1on_capstone.html"><button class="button1">Shop Now</button></a>
-            <a href="signuppage.html"><button class="button1">Signup</button></a>
-            <a href="login.html"><button class="button1">Login</button></a>
-        </div>
-
+    <!-- Hero Section -->
+    <div class="hero-content">
+      <h1>Sale 50% Off<br>On Everything</h1>
+      <p>
+        Discover incredible savings across thousands of products.
+        From the latest electronics to trending fashion — your perfect deal is just a click away.
+      </p>
+      <div class="hero-buttons">
+        <a href="experiment1on_capstone.html"><button class="hero-btn hero-btn-primary">🛍️ Shop Now</button></a>
+        <a href="signuppage.html"><button class="hero-btn hero-btn-outline">✨ Create Account</button></a>
+      </div>
     </div>
+  </div>
 
+  <script src="main.js"></script>
 </body>
 </html>

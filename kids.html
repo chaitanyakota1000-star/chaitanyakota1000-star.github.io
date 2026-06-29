@@ -1,386 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>kids -ShopNew </title>
-
-<style>
-body {
-  background: linear-gradient(135deg, #85edbb, #e2e8f0);
-}
-
-
-.box{
-   background: linear-gradient(135deg, #85edbb, #e2e8f0);
-   height:auto;
-   width:100%;
-   justify-content:space-between;
-   gap: 50px;
-   flex-wrap:wrap;
-   align-items:center;
-   display: flex;
-   position:sticky;
-   top:0;
-   z-index:100;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
-   
-
-}
- .logo-text {
-      font-size: 22px;
-      font-weight: bold;
-      color: #1a1a1a;
-    }
-
-
-  .link {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .link a {
-      color: #1a1a1a;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-    .link a:hover {
-      background: rgba(255,255,255,0.5);
-      color: #2a9d5c;
-    }
-    .cart-link { 
-      position: relative;  
-}
-    .cart-badge {
-      position: absolute;
-      top: 2px; right: 6px;
-      background: #e74c3c;
-      color: white;
-      font-size: 10px;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 16px; height: 16px;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-
-.searchbar {
-      display: flex;
-      align-items: center;
-      background: #f7f9fa;
-      border-radius: 10px;
-      padding: 6px 12px;
-      gap: 8px;
-    }
- .searchbar-wrapper {
-      flex: 1;
-      max-width: 400px;
-      padding: 2px;
-      border-radius: 12px;
-      background: linear-gradient(to right, #38c97d, #6b8cba);
-    }
-
-.search-input{
-  border:none;
-  width:100%;
-  max-width:500px;
-  height:25px;
-  outline:none;
-   border-radius:30px ;
-  background-color:#f7f9fa;
-text-align:center;
-   
-  
-}
-.slidebar{
-    cursor:pointer;
-    padding:8px 12px;
-    border-radius:20px;
-    width:200px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: 0.3s ease;
-    border: none;
-    outline: none;
-    background:none;
-}
-
-
-
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
-  padding: 15px;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-}
-
-
-.name {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 8px 0;
-}
-
-.price {
-  color: #10b981;
-  font-weight: bold;
-}
-
-button {
-  margin-top: 8px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(to right, #6366f1, #3b82f6);
-  color: white;
-  cursor: pointer;
-}
-</style>
-</head>
-
-<body>
-
- <div class="box">
-
-        <span class="logo-text">ShopEase</span>
-
-
-
-       <div class="searchbar-wrapper">
-    <div class="searchbar">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" id="search" type="text" placeholder="Search for Products, Brands and More" name="search"/>
-    </div>
-  
- </div>
-      
-    <div class="link">
-    <a href="cart.html" class="cart-link">
-      🛒 Cart
-      <span class="cart-badge" id="cartCount">0</span>
-    </a>
-    <a href="signuppage.html">SignUp</a>
-    <a href="login.html">Login</a>
-  </div>
-
-      
-       </div>
-
- 
-<div class="container">
-
- <div class="card">
-    <img src="https://images.unsplash.com/photo-1532330393533-443990a51d10?w=300">
-    <div class="name">Teddy Bear</div>
-    <div class="price">₹899</div>
-    <button onclick="addToCart('Teddy Bear', 899)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=300">
-    <div class="name">Building Blocks</div>
-    <div class="price">₹1,250</div>
-    <button onclick="addToCart('Building Blocks', 1250)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=300">
-    <div class="name">Toy Train Set</div>
-    <div class="price">₹2,400</div>
-    <button onclick="addToCart('Toy Train Set', 2400)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1556012018-50c5c0da73bf?w=300">
-    <div class="name">Blue Kids Sneakers</div>
-    <div class="price">₹1,599</div>
-    <button onclick="addToCart('Blue Kids Sneakers', 1599)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=300">
-    <div class="name">Cotton Baby Suit</div>
-    <div class="price">₹750</div>
-    <button onclick="addToCart('Cotton Baby Suit', 750)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1513159446162-54eb8bdaa79b?w=300">
-    <div class="name">Party Balloons Kit</div>
-    <div class="price">₹450</div>
-    <button onclick="addToCart('Party Balloons Kit', 450)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=300">
-    <div class="name">Crayons Set</div>
-    <div class="price">₹299</div>
-    <button onclick="addToCart('Crayons Set', 299)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=300">
-    <div class="name">Picture Story Book</div>
-    <div class="price">₹350</div>
-    <button onclick="addToCart('Picture Story Book', 350)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6AMuBGjmJlvHfI1aQapTd0VoM8_aBSrO2Q&s">
-    <div class="name">Remote Control Car</div>
-    <div class="price">₹1,850</div>
-    <button onclick="addToCart('Remote Control Car', 1850)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=300">
-    <div class="name">Wooden Puzzle</div>
-    <div class="price">₹599</div>
-    <button onclick="addToCart('Wooden Puzzle', 599)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1519340333755-56e9c1d04579?w=300">
-    <div class="name">Plush Dinosaur</div>
-    <div class="price">₹1,100</div>
-    <button onclick="addToCart('Plush Dinosaur', 1100)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=300">
-    <div class="name">Kids Backpack</div>
-    <div class="price">₹1,200</div>
-    <button onclick="addToCart('Kids Backpack', 1200)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2NSHvGDSQoHSvFfYc1RI9C0CGiqGtkjUW2A&s">
-    <div class="name">Doctor Play Kit</div>
-    <div class="price">₹950</div>
-    <button onclick="addToCart('Doctor Play Kit', 950)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1510070112810-d4e9a46d9e91?w=300">
-    <div class="name">School Lunch Box</div>
-    <div class="price">₹499</div>
-    <button onclick="addToCart('School Lunch Box', 499)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=300">
-    <div class="name">Art Easel Board</div>
-    <div class="price">₹2,100</div>
-    <button onclick="addToCart('Art Easel Board', 2100)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqVg-__6TDmJ-ur9ysjXVfSLRmVAxM-rAEg&s">
-    <div class="name">Summer Straw Hat</div>
-    <div class="price">₹399</div>
-    <button onclick="addToCart('Summer Straw Hat', 399)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCL0f9G4Z5d-pXiGgT3J2SbKxRNntdlJRL1A&s">
-    <div class="name">Baby Blanket</div>
-    <div class="price">₹1,450</div>
-    <button onclick="addToCart('Baby Blanket', 1450)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?w=300">
-    <div class="name">Rubber Duck Set</div>
-    <div class="price">₹250</div>
-    <button onclick="addToCart('Rubber Duck Set', 250)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLanggtLHIS2PmRoF5eoVgn09Jz2A6TyKQHQ&s">
-    <div class="name">Action Figure</div>
-    <div class="price">₹1,300</div>
-    <button onclick="addToCart('Action Figure', 1300)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu-yKVsnH_v6jlljnl9rmUvLYGl0iGM0-1Kg&s">
-    <div class="name">Kids Bicycle</div>
-    <div class="price">₹5,500</div>
-    <button onclick="addToCart('Kids Bicycle', 5500)">Add to cart</button>
-  </div>
-
-  <div class="card">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9VkeKXTEANyhiDbjvUdMhZ9peN9pbjNwGLg&s">
-    <div class="name">Sleeping Sleeping Bag</div>
-    <div class="price">₹2,800</div>
-    <button onclick="addToCart('Sleeping Sleeping Bag', 2800)">Add to cart</button>
-  </div>
-</div>
-<script>
-function addToCart(name, price) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-   
-    let existingItem = cart.find(item => item.name === name);
-
-    if (existingItem) {
-        existingItem.quantity = (existingItem.quantity || 1) + 1;
-    } else {
-        cart.push({
-            name: name,
-            price: price,
-            quantity: 1
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop kids' toys, clothing, and accessories at ShopEase — the best deals for your little ones.">
+    <title>Kids — ShopEase</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #85edbb, #e2e8f0);
         }
-);
-    }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-    alert(name + " added to cart!");
-}
+    <h1 class="page-title">Kids</h1>
 
-function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let count = 0;
+    <div class="products-grid">
 
-    cart.forEach(item => {
-        count += item.quantity || 1;
-    });
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1532330393533-443990a51d10?w=300" alt="Teddy Bear">
+            <div class="product-name">Teddy Bear</div>
+            <div class="product-price">₹899</div>
+            <button class="add-cart-btn" onclick="addToCart('Teddy Bear', 899)">Add to Cart</button>
+        </div>
 
-    document.getElementById("cartCount").innerText = count;
-}
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=300" alt="Building Blocks">
+            <div class="product-name">Building Blocks</div>
+            <div class="product-price">₹1,250</div>
+            <button class="add-cart-btn" onclick="addToCart('Building Blocks', 1250)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=300" alt="Toy Train Set">
+            <div class="product-name">Toy Train Set</div>
+            <div class="product-price">₹2,400</div>
+            <button class="add-cart-btn" onclick="addToCart('Toy Train Set', 2400)">Add to Cart</button>
+        </div>
 
-updateCartCount();
-</script>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1556012018-50c5c0da73bf?w=300" alt="Blue Kids Sneakers">
+            <div class="product-name">Blue Kids Sneakers</div>
+            <div class="product-price">₹1,599</div>
+            <button class="add-cart-btn" onclick="addToCart('Blue Kids Sneakers', 1599)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=300" alt="Cotton Baby Suit">
+            <div class="product-name">Cotton Baby Suit</div>
+            <div class="product-price">₹750</div>
+            <button class="add-cart-btn" onclick="addToCart('Cotton Baby Suit', 750)">Add to Cart</button>
+        </div>
 
-  
-</div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1513159446162-54eb8bdaa79b?w=300" alt="Party Balloons Kit">
+            <div class="product-name">Party Balloons Kit</div>
+            <div class="product-price">₹450</div>
+            <button class="add-cart-btn" onclick="addToCart('Party Balloons Kit', 450)">Add to Cart</button>
+        </div>
 
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=300" alt="Crayons Set">
+            <div class="product-name">Crayons Set</div>
+            <div class="product-price">₹299</div>
+            <button class="add-cart-btn" onclick="addToCart('Crayons Set', 299)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=300" alt="Picture Story Book">
+            <div class="product-name">Picture Story Book</div>
+            <div class="product-price">₹350</div>
+            <button class="add-cart-btn" onclick="addToCart('Picture Story Book', 350)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6AMuBGjmJlvHfI1aQapTd0VoM8_aBSrO2Q&s" alt="Remote Control Car">
+            <div class="product-name">Remote Control Car</div>
+            <div class="product-price">₹1,850</div>
+            <button class="add-cart-btn" onclick="addToCart('Remote Control Car', 1850)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=300" alt="Wooden Puzzle">
+            <div class="product-name">Wooden Puzzle</div>
+            <div class="product-price">₹599</div>
+            <button class="add-cart-btn" onclick="addToCart('Wooden Puzzle', 599)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1519340333755-56e9c1d04579?w=300" alt="Plush Dinosaur">
+            <div class="product-name">Plush Dinosaur</div>
+            <div class="product-price">₹1,100</div>
+            <button class="add-cart-btn" onclick="addToCart('Plush Dinosaur', 1100)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=300" alt="Kids Backpack">
+            <div class="product-name">Kids Backpack</div>
+            <div class="product-price">₹1,200</div>
+            <button class="add-cart-btn" onclick="addToCart('Kids Backpack', 1200)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLanggtLHIS2PmRoF5eoVgn09Jz2A6TyKQHQ&s" alt="Action Figure">
+            <div class="product-name">Action Figure</div>
+            <div class="product-price">₹1,300</div>
+            <button class="add-cart-btn" onclick="addToCart('Action Figure', 1300)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu-yKVsnH_v6jlljnl9rmUvLYGl0iGM0-1Kg&s" alt="Kids Bicycle">
+            <div class="product-name">Kids Bicycle</div>
+            <div class="product-price">₹5,500</div>
+            <button class="add-cart-btn" onclick="addToCart('Kids Bicycle', 5500)">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>

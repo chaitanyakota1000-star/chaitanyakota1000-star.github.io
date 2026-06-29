@@ -1,155 +1,40 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>My Cart - ShopNew</title>
-    <style>
-        body { 
-            font-family: sans-serif; 
-            background-color: #12010b; 
-            color: white;
-            padding: 20px;
-        }
-        .cart-box {
-            max-width: 500px;
-            margin: 20px auto;
-            border: 2px solid #333;
-            padding: 20px;
-        }
-        h1 { border-bottom: 2px solid #ff9de2; padding-bottom: 10px; }
-        .product-row { 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #333;
-        }
-        .qty-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .qty-btn {
-            background: #222;
-            color: white;
-            border: 1px solid #ff9de2;
-            padding: 5px 12px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .qty-number { 
-            font-size: 18px; 
-            min-width: 20px; 
-            text-align: center; 
-}
-        .price-tag {
-             color: #ff9de2; 
-             font-size: 14px; 
-             display: block; 
-             margin-top: 4px; 
- }
-        .total-container {
-            margin-top: 20px;
-            text-align: right;
-            font-size: 22px;
-        }
-        .checkout-button {
-            background-color: #ff9de2;
-            color: black;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .footer-links {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .footer-links a, .footer-links button {
-            color: #888;
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 14px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your ShopEase shopping bag. Review items, update quantities, and proceed to checkout.">
+  <title>Your Bag — ShopEase</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0; min-height: 100vh;
+      background-color: #0c0a1a;
+      background-image: radial-gradient(ellipse at 20% 50%, rgba(99,102,241,.12) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(42,157,92,.1) 0%, transparent 50%);
+      color: #e8e8f0;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
 </head>
 <body>
 
-<div class="cart-box">
-    <h1>Your Bag</h1>
-    <div id="cartList"></div>
-    <div class="total-container">
-        Total: <span id="finalPrice">₹0</span>
+<div class="cart-page">
+  <div class="cart-wrapper">
+    <div class="cart-title">🛍️ Your Bag</div>
+    <div class="cart-subtitle">Review your items before checkout</div>
+
+    <div id="cart-items">
+      <!-- Rendered by main.js -->
     </div>
-    <button class="checkout-button" onclick="alert('Proceeding to payment...')">Checkout</button>
-    <div class="footer-links">
-        <a href="experiment1on_capstone.html">← Back to Shop</a>
-        <button onclick="clearAll()">Empty Bag</button>
+
+    <div id="cart-summary">
+      <!-- Rendered by main.js -->
     </div>
+  </div>
 </div>
 
-<script>
-    function updateCartUI() {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let list = document.getElementById("cartList");
-        let totalDisplay = document.getElementById("finalPrice");
-        
-        list.innerHTML = "";
-        let grandTotal = 0;
-
-        if (cart.length === 0) {
-            list.innerHTML = "<p style='color:#666; text-align:center;'>Your bag is empty.</p>";
-        }
-       else {
-            cart.forEach((item, index) => {
-                if (!item.quantity) item.quantity = 1;
-                let itemTotal = item.price * item.quantity;
-                grandTotal += itemTotal;
-
-                let row = document.createElement("div");
-                row.className = "product-row";
-                row.innerHTML = `
-                    <div>
-                        <strong>${item.name}</strong>
-                        <span class="price-tag">₹${item.price}</span>
-                    </div>
-                    <div class="qty-controls">
-                        <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-                        <span class="qty-number">${item.quantity}</span>
-                        <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-                    </div>
-                `;
-                list.appendChild(row);
-            });
-        }
-        totalDisplay.innerText = "₹" + grandTotal.toLocaleString();
-    }
-
-    function changeQty(index, amount) {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        cart[index].quantity = (cart[index].quantity || 1) + amount;
-
-        if (cart[index].quantity <= 0) {
-            cart.splice(index, 1);
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-        updateCartUI();
-    }
-
-    function clearAll() {
-        if(confirm("Are you sure?")) {
-            localStorage.removeItem("cart");
-            updateCartUI();
-        }
-    }
-
-    updateCartUI();
-</script>
-
+<div id="toast-container"></div>
+<script src="main.js"></script>
 </body>
 </html>

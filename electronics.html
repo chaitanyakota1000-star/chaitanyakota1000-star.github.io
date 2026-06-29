@@ -1,390 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobiles -ShopNew </title>
-
-<style>
-body {
-  background: linear-gradient(135deg, #85edbb, #e2e8f0);
-}
-
-
-.box{
-   background: linear-gradient(135deg, #85edbb, #e2e8f0);
-   height:auto;
-   width:100%;
-   justify-content:space-between;
-   gap: 50px;
-   flex-wrap:wrap;
-   align-items:center;
-   display: flex;
-   position:sticky;
-   top:0;
-   z-index:100;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
-   
-
-}
- .logo-text {
-      font-size: 22px;
-      font-weight: bold;
-      color: #1a1a1a;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop electronics at ShopEase — laptops, TVs, cameras, speakers, and more at the best prices.">
+  <title>Electronics — ShopEase</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #85edbb, #e2e8f0);
     }
-
-
-  .link {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .link a {
-      color: #1a1a1a;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-    .link a:hover {
-      background: rgba(255,255,255,0.5);
-      color: #2a9d5c;
-    }
-    .cart-link { 
-      position: relative;  
-}
-    .cart-badge {
-      position: absolute;
-      top: 2px; right: 6px;
-      background: #e74c3c;
-      color: white;
-      font-size: 10px;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 16px; height: 16px;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-
-.searchbar {
-      display: flex;
-      align-items: center;
-      background: #f7f9fa;
-      border-radius: 10px;
-      padding: 6px 12px;
-      gap: 8px;
-    }
- .searchbar-wrapper {
-      flex: 1;
-      max-width: 400px;
-      padding: 2px;
-      border-radius: 12px;
-      background: linear-gradient(to right, #38c97d, #6b8cba);
-    }
-
-.search-input{
-  border:none;
-  width:100%;
-  max-width:500px;
-  height:25px;
-  outline:none;
-   border-radius:30px ;
-  background-color:#f7f9fa;
-text-align:center;
-   
-  
-}
-.slidebar{
-    cursor:pointer;
-    padding:8px 12px;
-    border-radius:20px;
-    width:200px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: 0.3s ease;
-    border: none;
-    outline: none;
-    background:none;
-}
-
-
-
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
-  padding: 15px;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-}
-
-
-.name {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 8px 0;
-}
-
-.price {
-  color: #10b981;
-  font-weight: bold;
-}
-
-button {
-  margin-top: 8px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(to right, #6366f1, #3b82f6);
-  color: white;
-  cursor: pointer;
-}
-</style>
+  </style>
 </head>
-
 <body>
+  <div id="navbar-container"></div>
 
- <div class="box">
+  <h1 style="text-align:center; margin: 30px 0 10px; font-size: 2.2rem; color: #1a202c;">Electronics</h1>
+  <p style="text-align:center; margin: 0 0 30px; color: #4a5568; font-size: 1.1rem;">Laptops, TVs, cameras, speakers, and more at the best prices.</p>
 
-        <span class="logo-text">ShopEase</span>
+  <div class="products-grid">
 
-
-
-       <div class="searchbar-wrapper">
-    <div class="searchbar">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" id="search" type="text" placeholder="Search for Products, Brands and More" name="search"/>
+    <div class="product-card">
+      <img src="https://i5.walmartimages.com/seo/HP-15-6-Ryzen-5-8GB-256GB-Laptop-Rose-Gold_36809cf3-480b-47a5-94f0-e1d5e70c58c0_3.fcc0d6494b0e279a13c32c80c28abfa3.jpeg" alt="Laptop">
+      <div class="product-name">Laptop</div>
+      <div class="product-price">₹55,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Laptop', 55999)">Add to Cart</button>
     </div>
-  
- </div>
-      
-    <div class="link">
-    <a href="cart.html" class="cart-link">
-      🛒 Cart
-      <span class="cart-badge" id="cartCount">0</span>
-    </a>
-    <a href="signuppage.html">SignUp</a>
-    <a href="login.html">Login</a>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnYcl091v6ENPZcPAyIPIKYnl84CJJ1pf0sg&s" alt="Bluetooth Speaker">
+      <div class="product-name">Bluetooth Speaker</div>
+      <div class="product-price">₹2,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Bluetooth Speaker', 2999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk2GAEv2BeZxDOAVaJZ2KF-YKarCTdaaZAyw&s" alt="Smart TV">
+      <div class="product-name">Smart TV</div>
+      <div class="product-price">₹39,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Smart TV', 39999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8kFxPPAGf3n7O1TxV9cB-HpxvHj7qQZfMEw&s" alt="Earbuds">
+      <div class="product-name">Earbuds</div>
+      <div class="product-price">₹4,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Earbuds', 4999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO-CToKiJ12Gk_5ZUgBcKggcucJ6f3Qg5W1g&s" alt="Gaming Console">
+      <div class="product-name">Gaming Console</div>
+      <div class="product-price">₹49,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Gaming Console', 49999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAMhP0OJN-n2rd78kFnMj6Y8FRT9w5W3d3w&s" alt="Smartwatch">
+      <div class="product-name">Smartwatch</div>
+      <div class="product-price">₹6,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Smartwatch', 6999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcnW8eCQSGRnrgP5apsc9uUwFcxawTn0wTig&s" alt="Tablet">
+      <div class="product-name">Tablet</div>
+      <div class="product-price">₹24,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Tablet', 24999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFe6H5ZfbBt_rafglTb8ID16U7JiAaDGsW9A&s" alt="Power Bank">
+      <div class="product-name">Power Bank</div>
+      <div class="product-price">₹1,499</div>
+      <button class="add-cart-btn" onclick="addToCart('Power Bank', 1499)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz1h-dRLbxSQ6v3LJsoCCY8Xbqc3_Gg0vSwQ&s" alt="DSLR Camera">
+      <div class="product-name">DSLR Camera</div>
+      <div class="product-price">₹59,999</div>
+      <button class="add-cart-btn" onclick="addToCart('DSLR Camera', 59999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3iW7q1llVM1XCtSriiJEROK1wc9RL7Wmg3A&s" alt="Monitor">
+      <div class="product-name">Monitor</div>
+      <div class="product-price">₹12,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Monitor', 12999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-CCuFHScCu0irjNL8FXJ89GLEf5WSCn2UuQ&s" alt="Keyboard">
+      <div class="product-name">Keyboard</div>
+      <div class="product-price">₹1,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Keyboard', 1999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDF43zMnii075UjwL0OEqSKCgJkZ6FE2h0-A&s" alt="Mouse">
+      <div class="product-name">Mouse</div>
+      <div class="product-price">₹999</div>
+      <button class="add-cart-btn" onclick="addToCart('Mouse', 999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcDEQ5oturBbwzi0uJscalDGzNQcgD5ZyJGQ&s" alt="Headphones">
+      <div class="product-name">Headphones</div>
+      <div class="product-price">₹3,499</div>
+      <button class="add-cart-btn" onclick="addToCart('Headphones', 3499)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuhfnoUrfhS6nogxhO3vu8DtVHkre7uqYwkQ&s" alt="WiFi Router">
+      <div class="product-name">WiFi Router</div>
+      <div class="product-price">₹2,499</div>
+      <button class="add-cart-btn" onclick="addToCart('WiFi Router', 2499)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWqYAnhx5MqDo-yhHkYZzpgpL9tBg1UMYXg&s" alt="Printer">
+      <div class="product-name">Printer</div>
+      <div class="product-price">₹8,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Printer', 8999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtLVvt2MxDPYQJiENUsrzX9peYhMWcXiA82g&s" alt="Projector">
+      <div class="product-name">Projector</div>
+      <div class="product-price">₹14,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Projector', 14999)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBpukvH3L57b7oymibuy934MX9oLm_ZmkBJA&s" alt="Electric Kettle">
+      <div class="product-name">Electric Kettle</div>
+      <div class="product-price">₹1,299</div>
+      <button class="add-cart-btn" onclick="addToCart('Electric Kettle', 1299)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7LxS32yzhsDSGJLdKU7M585nuvBdqQYs7kw&s" alt="Induction Stove">
+      <div class="product-name">Induction Stove</div>
+      <div class="product-price">₹2,799</div>
+      <button class="add-cart-btn" onclick="addToCart('Induction Stove', 2799)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoG9bDriHiXLE-LaLexf-tAnjoHlfOwJ4wOA&s" alt="Air Purifier">
+      <div class="product-name">Air Purifier</div>
+      <div class="product-price">₹9,999</div>
+      <button class="add-cart-btn" onclick="addToCart('Air Purifier', 9999)">Add to Cart</button>
+    </div>
+
   </div>
 
-      
-       </div>
-
- 
-<div class="container">
-
- <div class="card">
-  <img src="https://i5.walmartimages.com/seo/HP-15-6-Ryzen-5-8GB-256GB-Laptop-Rose-Gold_36809cf3-480b-47a5-94f0-e1d5e70c58c0_3.fcc0d6494b0e279a13c32c80c28abfa3.jpeg">
-  <div class="name">Laptop</div>
-  <div class="price">₹55,999</div>
-  <button onclick="addToCart('Laptop', 55999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnYcl091v6ENPZcPAyIPIKYnl84CJJ1pf0sg&s">
-  <div class="name">Bluetooth Speaker</div>
-  <div class="price">₹2,999</div>
-  <button onclick="addToCart('Bluetooth Speaker', 2999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk2GAEv2BeZxDOAVaJZ2KF-YKarCTdaaZAyw&s">
-  <div class="name">Smart TV</div>
-  <div class="price">₹39,999</div>
-  <button onclick="addToCart('Smart TV', 39999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuthSUJwn_g9fAnqnT3G7gU50Lb0e4HlCUsg&s">
-  <div class="name">Wireless Earbuds</div>
-  <div class="price">₹4,999</div>
-  <button onclick="addToCart('Earbuds', 4999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO-CToKiJ12Gk_5ZUgBcKggcucJ6f3Qg5W1g&s">
-  <div class="name">Gaming Console</div>
-  <div class="price">₹49,999</div>
-  <button onclick="addToCart('Gaming Console', 49999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAMhP0OJN-n2rd78kFnMj6Y8FRT9w5W3d3w&s">
-  <div class="name">Smartwatch</div>
-  <div class="price">₹6,999</div>
-  <button onclick="addToCart('Smartwatch', 6999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcnW8eCQSGRnrgP5apsc9uUwFcxawTn0wTig&s">
-  <div class="name">Tablet</div>
-  <div class="price">₹24,999</div>
-  <button onclick="addToCart('Tablet', 24999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFe6H5ZfbBt_rafglTb8ID16U7JiAaDGsW9A&s">
-  <div class="name">Power Bank</div>
-  <div class="price">₹1,499</div>
-  <button onclick="addToCart('Power Bank', 1499)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz1h-dRLbxSQ6v3LJsoCCY8Xbqc3_Gg0vSwQ&s">
-  <div class="name">DSLR Camera</div>
-  <div class="price">₹59,999</div>
-  <button onclick="addToCart('DSLR Camera', 59999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3iW7q1llVM1XCtSriiJEROK1wc9RL7Wmg3A&s">
-  <div class="name">Monitor</div>
-  <div class="price">₹12,999</div>
-  <button onclick="addToCart('Monitor', 12999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-CCuFHScCu0irjNL8FXJ89GLEf5WSCn2UuQ&s">
-  <div class="name">Keyboard</div>
-  <div class="price">₹1,999</div>
-  <button onclick="addToCart('Keyboard', 1999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDF43zMnii075UjwL0OEqSKCgJkZ6FE2h0-A&s">
-  <div class="name">Mouse</div>
-  <div class="price">₹999</div>
-  <button onclick="addToCart('Mouse', 999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcDEQ5oturBbwzi0uJscalDGzNQcgD5ZyJGQ&s">
-  <div class="name">Headphones</div>
-  <div class="price">₹3,499</div>
-  <button onclick="addToCart('Headphones', 3499)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuhfnoUrfhS6nogxhO3vu8DtVHkre7uqYwkQ&s">
-  <div class="name">WiFi Router</div>
-  <div class="price">₹2,499</div>
-  <button onclick="addToCart('WiFi Router', 2499)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM5FhGi9DKvTAobI5WZ5F3zEQasAFfHHvn5g&s">
-  <div class="name">External Hard Drive</div>
-  <div class="price">₹5,999</div>
-  <button onclick="addToCart('Hard Drive', 5999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkI42YyjC3UK-NqQf28o9QPEyvNfBSwT0_ug&s">
-  <div class="name">USB Flash Drive</div>
-  <div class="price">₹799</div>
-  <button onclick="addToCart('USB Drive', 799)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWqYAnhx5MqDo-yhHkYZzpgpL9tBg1UMYXg&s">
-  <div class="name">Printer</div>
-  <div class="price">₹8,999</div>
-  <button onclick="addToCart('Printer', 8999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtLVvt2MxDPYQJiENUsrzX9peYhMWcXiA82g&s">
-  <div class="name">Projector</div>
-  <div class="price">₹14,999</div>
-  <button onclick="addToCart('Projector', 14999)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBpukvH3L57b7oymibuy934MX9oLm_ZmkBJA&s">
-  <div class="name">Electric Kettle</div>
-  <div class="price">₹1,299</div>
-  <button onclick="addToCart('Electric Kettle', 1299)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7LxS32yzhsDSGJLdKU7M585nuvBdqQYs7kw&s">
-  <div class="name">Induction Stove</div>
-  <div class="price">₹2,799</div>
-  <button onclick="addToCart('Induction Stove', 2799)">Add to cart</button>
-</div>
-
-<div class="card">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoG9bDriHiXLE-LaLexf-tAnjoHlfOwJ4wOA&s">
-  <div class="name">Air Purifier</div>
-  <div class="price">₹9,999</div>
-  <button onclick="addToCart('Air Purifier', 9999)">Add to cart</button>
-</div>
-
-  
-</div>
-
-
-<script>
-
-
-function addToCart(name, price) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    
-    let existingItem = cart.find(item => item.name === name);
-
-    if (existingItem) {
-        existingItem.quantity = (existingItem.quantity || 1) + 1;
-    } 
-    else {
-        cart.push({
-            name: name,
-            price: price,
-            quantity: 1
-        }
-);
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-    alert(name + " added to cart!");
-}
-
-function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let count = 0;
-
-    cart.forEach(item => {
-        count += item.quantity || 1;
-    });
-
-    document.getElementById("cartCount").innerText = count;
-}
-
-
-updateCartCount();
-</script>
-
-
+  <script src="main.js"></script>
 </body>
 </html>

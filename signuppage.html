@@ -1,157 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sign Page</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a ShopEase account to start shopping with exclusive deals and track your orders.">
+  <title>Sign Up — ShopEase</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-       background: linear-gradient(135deg, #85edbb, #e2e8f0);
-    }
-
-    .background-img{
-      width:100vw;
-      height:100vh;
-      background-repeat:no-repeat;
-      background-size:cover;
-      display:flex; 
-      justify-content:center;
-      align-items:center;
-    }
-
-    .box{
-      height:500px;
-      width:450px;
-      background-color:white;
-      border-radius:5px;
-      padding:25px;
-      text-align:center;
-      font-size:18px;
-    }
-
-    h1{
-      color:#eba51a;
-      margin-bottom:10px;
-    }
-
-    .login-text{
-      color:#1aebd6;
-      margin-bottom:20px;
-    }
-
-    input{
-      height:30px;
-      width:60%;
-      margin:8px 0;
-      border-radius:4px;
-      border:1px solid #ccc;
-      padding:5px;
-    }
-
-    label{
-      display:block;
-      margin-top:10px;
-    }
-
-    .error{
-      color:red;
-      font-size:14px;
-      visibility:hidden;
-    }
-
-    button{
-      margin-top:15px;
-      padding:8px 15px;
-      background-color:#ccdce8;
-      border:2px solid black;
-      cursor:pointer;
-      border-radius:2px;
-      
-    }
-
-    button:hover{
-      background-color:#b5c9d6;
-      background:white;
-    }
+    body { margin: 0; min-height: 100vh; background: linear-gradient(135deg, #85edbb, #e2e8f0); display: flex; justify-content: center; align-items: center; padding: 20px; }
   </style>
 </head>
-
 <body>
 
-<div class="background-img">
-  <div class="box">
-    <h1>Sign Up</h1>
+<div class="auth-card">
+  <h1>Create Account</h1>
+  <p class="auth-subtitle">Already have an account? <a href="login.html">Login here</a></p>
 
-    <p class="login-text">
-      Already have an account?
-      <a href="login.html">Login Here</a>
-    </p>
+  <form id="signupForm" onsubmit="return handleSignup(event)">
+    <div class="form-group" id="fg-name">
+      <label for="fname">Full Name</label>
+      <input id="fname" name="fname" type="text" placeholder="Your full name" required>
+      <div class="field-error" id="err-name"></div>
+    </div>
 
-    <form action="login.html" onsubmit="return validation()">
+    <div class="form-group" id="fg-email">
+      <label for="mail">Email Address</label>
+      <input id="mail" name="mail" type="email" placeholder="you@example.com" required>
+      <div class="field-error" id="err-email"></div>
+    </div>
 
-      <label for="fname">FIRST NAME:</label>
-      <input id="fname" type="text" name="fname">
+    <div class="form-group" id="fg-phone">
+      <label for="phonenumber">Phone Number</label>
+      <input id="phonenumber" name="phonenumber" type="tel" placeholder="10-digit phone number" required>
+      <div class="field-error" id="err-phone"></div>
+    </div>
 
-      <label for="pass">Password:</label>
-      <input id="pass" name="password" type="password">
-      <div id="invalid" class="error">invalid</div>
+    <div class="form-group" id="fg-password">
+      <label for="pass">Password</label>
+      <input id="pass" name="password" type="password" placeholder="Min 5 characters" required>
+      <div class="field-error" id="err-password"></div>
+    </div>
 
-      <label for="phonenumber">Phone number:</label>
-      <input id="phonenumber" type="text">
-      <div id="unvalid" class="error">invalid</div>
+    <button type="submit" class="auth-btn" id="signupBtn">Create Account →</button>
+  </form>
 
-      <label for="mail">E-MAIL:</label>
-      <input id="mail" name="mail" type="text">
-      <div id="notvalid" class="error">invalid</div>
-
-      <button type="submit">Submit</button>
-
-    </form>
+  <div class="auth-link">
+    <a href="index.html">← Back to Home</a>
   </div>
 </div>
 
+<div id="toast-container"></div>
+<script src="main.js"></script>
 <script>
-function validation(){
-  let firstname = document.getElementById("fname");
-  let password = document.getElementById("pass");
-  let phonenumber = document.getElementById("phonenumber");
-  let mail = document.getElementById("mail");
+  // Redirect if already logged in
+  if (getSession()) {
+    window.location.href = 'experiment1on_capstone.html';
+  }
 
-  let regx = /^[7-9][0-9]{9}$/;
-  let rege = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  async function handleSignup(e) {
+    e.preventDefault();
 
-  if (firstname.value.trim()=="" || password.value.trim()=="" || mail.value.trim()=="" || phonenumber.value.trim()==""){
-    alert("No blank values are allowed");
+    // clear errors
+    document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('mail').value.trim();
+    const phone = document.getElementById('phonenumber').value.trim();
+    const password = document.getElementById('pass').value;
+    const btn = document.getElementById('signupBtn');
+
+    // Client-side validation
+    let valid = true;
+    const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const phoneReg = /^[6-9][0-9]{9}$/;
+
+    if (!name) {
+      setFieldError('fg-name', 'err-name', 'Please enter your name');
+      valid = false;
+    }
+    if (!email || !emailReg.test(email)) {
+      setFieldError('fg-email', 'err-email', 'Please enter a valid email address');
+      valid = false;
+    }
+    if (!phone || !phoneReg.test(phone)) {
+      setFieldError('fg-phone', 'err-phone', 'Enter a valid 10-digit Indian phone number');
+      valid = false;
+    }
+    if (!password || password.length < 5) {
+      setFieldError('fg-password', 'err-password', 'Password must be at least 5 characters');
+      valid = false;
+    }
+    if (!valid) return false;
+
+    btn.disabled = true;
+    btn.textContent = 'Creating account…';
+
+    const result = await apiSignup({ name, email, phone, password });
+
+    btn.disabled = false;
+    btn.textContent = 'Create Account →';
+
+    if (result.success) {
+      showToast('Account created! Redirecting to login…');
+      setTimeout(() => window.location.href = 'login.html', 1200);
+    } else {
+      showToast(result.message, 'error');
+    }
+
     return false;
   }
 
-  document.getElementById("invalid").style.visibility="hidden";
-  document.getElementById("unvalid").style.visibility="hidden";
-  document.getElementById("notvalid").style.visibility="hidden";
-
-  if(password.value.length < 5){
-    document.getElementById("invalid").innerText="Password too short";
-    document.getElementById("invalid").style.visibility="visible";
-    return false;
+  function setFieldError(groupId, errorId, message) {
+    document.getElementById(groupId).classList.add('has-error');
+    const errEl = document.getElementById(errorId);
+    errEl.textContent = message;
+    errEl.style.display = 'block';
   }
-
-  if(!regx.test(phonenumber.value)){
-    document.getElementById("unvalid").innerText="Invalid phone";
-    document.getElementById("unvalid").style.visibility="visible";
-    return false;
-  }
-
-  if(!rege.test(mail.value)){
-    document.getElementById("notvalid").innerText="Invalid email";
-    document.getElementById("notvalid").style.visibility="visible";
-    return false;
-  }
-
-  alert("Success!");
-  return true;
-}
 </script>
-
 </body>
 </html>
