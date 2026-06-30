@@ -15,24 +15,47 @@ import hashlib
 import re
 
 PORT = 8000
-USERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'users.json')
+import xml.etree.ElementTree as ET
+
+USERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data_base_users.xml')
 
 
 def load_users():
-    """Load user database from JSON file."""
+    """Load user database from XML file."""
     if not os.path.exists(USERS_FILE):
         return []
     try:
-        with open(USERS_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except (json.JSONDecodeError, IOError):
+        tree = ET.parse(USERS_FILE)
+        root = tree.getroot()
+        users = []
+        for user_node in root.findall('user'):
+            users.append({
+                'name': (user_node.find('name').text or '').strip(),
+                'email': (user_node.find('email').text or '').strip().lower(),
+                'password': (user_node.find('password').text or '').strip(),
+                'phone': (user_node.find('phone').text or '').strip()
+            })
+        return users
+    except Exception:
         return []
 
 
 def save_users(users):
-    """Save user database to JSON file."""
-    with open(USERS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(users, f, indent=2, ensure_ascii=False)
+    """Save user database to XML file."""
+    root = ET.Element('users')
+    for u in users:
+        user_node = ET.SubElement(root, 'user')
+        ET.SubElement(user_node, 'name').text = u.get('name', '')
+        ET.SubElement(user_node, 'email').text = u.get('email', '')
+        ET.SubElement(user_node, 'password').text = u.get('password', '')
+        ET.SubElement(user_node, 'phone').text = u.get('phone', '')
+    
+    tree = ET.ElementTree(root)
+    try:
+        ET.indent(tree, space="  ")
+    except AttributeError:
+        pass
+    tree.write(USERS_FILE, encoding='utf-8', xml_declaration=True)
 
 
 def hash_password(password):
