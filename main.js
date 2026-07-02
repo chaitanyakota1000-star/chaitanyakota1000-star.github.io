@@ -91,10 +91,131 @@ function renderNotifBadge() {
 function getCart() {
   try { return JSON.parse(localStorage.getItem('cart')) || []; } catch { return []; }
 }
+function generateId(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
 function saveCart(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartBadge();
+  
+  // Sync to backend if logged in (only save IDs and quantities)
+  const session = getSession();
+  if (session && session.email) {
+    const minCart = cart.map(item => ({ id: item.id || generateId(item.name), quantity: item.quantity || 1 }));
+    fetch('/api/cart', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: session.email, cart: minCart })
+    }).catch(e => console.error('Failed to sync cart', e));
+  }
 }
+
+// ─── Backend Cart Sync ──────────────────────────────────────
+async function fetchProductsCache() {
+  try {
+    const res = await fetch('/api/categories');
+    if (res.ok) {
+      const json = await res.json();
+      if (json.success) {
+        localStorage.setItem('productsCache', JSON.stringify(json.data));
+      }
+    }
+  } catch(e) {}
+}
+
+function getProductsCache() {
+  try { return JSON.parse(localStorage.getItem('productsCache')) || []; } catch { return []; }
+}
+
+async function syncCartOnLogin() {
+  const session = getSession();
+  if (!session || !session.email) return;
+  try {
+    const res = await fetch(`/api/cart?email=${encodeURIComponent(session.email)}`);
+    if (!res.ok) return;
+    const json = await res.json();
+    if (json.success) {
+      let localCart = getCart();
+      let remoteCartIds = json.cart || [];
+      const products = getProductsCache();
+      
+      // Expand remote IDs back to full objects using cache
+      let mergedCart = remoteCartIds.map(remoteItem => {
+        const prod = products.find(p => p.id === remoteItem.id);
+        if (prod) {
+           return { 
+             id: prod.id, 
+             name: prod.product_name, 
+             price: parseInt(prod.price.replace(/[^0-9]/g, '')), 
+             quantity: remoteItem.quantity, 
+             image: prod.image 
+           };
+        }
+        return null;
+      }).filter(i => i);
+      
+      // Merge local cart into remote cart (like Amazon)
+      localCart.forEach(localItem => {
+        const localId = localItem.id || generateId(localItem.name);
+        const existing = mergedCart.find(i => i.id === localId);
+        if (existing) {
+          existing.quantity = (existing.quantity || 1) + (localItem.quantity || 1);
+        } else {
+          localItem.id = localId;
+          mergedCart.push(localItem);
+        }
+      });
+      
+      localStorage.setItem('cart', JSON.stringify(mergedCart));
+      updateCartBadge();
+      
+      // Save minimal merged cart back to server
+      const minCart = mergedCart.map(item => ({ id: item.id, quantity: item.quantity }));
+      await fetch('/api/cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: session.email, cart: minCart })
+      });
+    }
+  } catch(e) {
+    console.error('Failed to sync cart on login', e);
+  }
+}
+
+async function fetchCartOnLoad() {
+  const session = getSession();
+  if (!session || !session.email) return;
+  try {
+    const res = await fetch(`/api/cart?email=${encodeURIComponent(session.email)}`);
+    if (res.ok) {
+      const json = await res.json();
+      if (json.success && json.cart) {
+        const products = getProductsCache();
+        let fullCart = json.cart.map(remoteItem => {
+           const prod = products.find(p => p.id === remoteItem.id);
+           if (prod) {
+             return { 
+               id: prod.id, 
+               name: prod.product_name, 
+               price: parseInt(prod.price.replace(/[^0-9]/g, '')), 
+               quantity: remoteItem.quantity, 
+               image: prod.image 
+             };
+           }
+           return null;
+        }).filter(i => i);
+        
+        localStorage.setItem('cart', JSON.stringify(fullCart));
+        updateCartBadge();
+        if (document.getElementById('cart-items')) renderPremiumCart();
+      }
+    }
+  } catch(e) {
+    console.error('Failed to fetch cart on load', e);
+  }
+}
+
 function updateCartBadge() {
   const badge = $('#cart-badge');
   if (!badge) return;
@@ -107,6 +228,7 @@ function updateCartBadge() {
 // ─── Add to Cart (globally used by product pages) ───────────
 function addToCart(name, price, imgSrc) {
   const cart = getCart();
+  const id = generateId(name);
   if (!imgSrc) {
     try {
       const btn = event.currentTarget || event.target;
@@ -117,11 +239,11 @@ function addToCart(name, price, imgSrc) {
       }
     } catch(e) {}
   }
-  const existing = cart.find(i => i.name === name.trim());
+  const existing = cart.find(i => (i.id || generateId(i.name)) === id);
   if (existing) {
     existing.quantity = (existing.quantity || 1) + 1;
   } else {
-    cart.push({ name: name.trim(), price, quantity: 1, image: imgSrc || '' });
+    cart.push({ id, name: name.trim(), price, quantity: 1, image: imgSrc || '' });
   }
   saveCart(cart);
   showToast(`${name.trim()} added to cart!`);
@@ -132,13 +254,67 @@ function addToCart(name, price, imgSrc) {
 function initSearch() {
   const input = $('#search');
   if (!input) return;
+
+  // Create a results container if it doesn't exist
+  let resultsBox = $('#search-results-box');
+  if (!resultsBox) {
+    resultsBox = document.createElement('div');
+    resultsBox.id = 'search-results-box';
+    resultsBox.className = 'search-results-dropdown';
+    input.parentNode.appendChild(resultsBox);
+  }
+
+  let timeout = null;
   input.addEventListener('input', () => {
-    const q = input.value.toLowerCase().trim();
+    clearTimeout(timeout);
+    const qRaw = input.value.trim();
+    const qLower = qRaw.toLowerCase();
+    
+    // 1. Instantly filter any product cards on the current page
     const cards = $$('.product-card, .card, .smartbox, .featured-card');
-    cards.forEach(c => {
-      const text = c.textContent.toLowerCase();
-      c.style.display = text.includes(q) ? '' : 'none';
-    });
+    if (cards.length > 0) {
+      cards.forEach(c => {
+        const text = c.textContent.toLowerCase();
+        c.style.display = text.includes(qLower) ? '' : 'none';
+      });
+    }
+
+    if (!qRaw) {
+      resultsBox.style.display = 'none';
+      return;
+    }
+    
+    // 2. Fetch and show dropdown results from backend
+    timeout = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(qRaw)}`);
+        if (!res.ok) throw new Error('Network error');
+        const json = await res.json();
+        
+        if (json.success && json.data.length > 0) {
+          resultsBox.innerHTML = json.data.map(item => `
+            <div class="search-result-item" onclick="addToCart('${item.product_name}', ${item.price.replace(/[^0-9]/g, '')}); document.getElementById('search').value=''; document.getElementById('search-results-box').style.display='none';">
+              <span class="search-item-name">${item.product_name}</span>
+              <span class="search-item-price">${item.price}</span>
+              <span class="search-item-cat">${item.category}</span>
+            </div>
+          `).join('');
+          resultsBox.style.display = 'block';
+        } else {
+          resultsBox.innerHTML = '<div class="search-result-empty">No products found</div>';
+          resultsBox.style.display = 'block';
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }, 300); // 300ms debounce
+  });
+  
+  // Hide on click outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-search')) {
+      if (resultsBox) resultsBox.style.display = 'none';
+    }
   });
 }
 
@@ -267,6 +443,7 @@ document.addEventListener('click', e => {
 
 function logoutUser() {
   clearSession();
+  localStorage.removeItem('cart'); // Clear cart on logout
   showToast('Logged out successfully');
   setTimeout(() => window.location.href = 'index.html', 600);
 }
@@ -373,8 +550,9 @@ async function apiSignup(data) {
       body: JSON.stringify(data)
     });
     return await res.json();
-  } catch {
-    return localSignup(data);
+  } catch (err) {
+    console.error(err);
+    return { success: false, message: 'Could not connect to the backend server. Are you visiting via http://localhost:8000 ?' };
   }
 }
 
@@ -386,8 +564,9 @@ async function apiLogin(data) {
       body: JSON.stringify(data)
     });
     return await res.json();
-  } catch {
-    return localLogin(data);
+  } catch (err) {
+    console.error(err);
+    return { success: false, message: 'Could not connect to the backend server. Are you visiting via http://localhost:8000 ?' };
   }
 }
 
@@ -409,10 +588,12 @@ function localLogin(data) {
 }
 
 // ─── Init on DOM Ready ──────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
   if ($('#navbar-container')) renderNavbar('navbar-container');
   if ($('#cart-items')) renderPremiumCart();
   initSearch();
   updateCartBadge();
+  await fetchProductsCache();
+  await fetchCartOnLoad();
 });

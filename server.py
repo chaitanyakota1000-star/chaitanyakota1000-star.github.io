@@ -13,49 +13,56 @@ import json
 import os
 import hashlib
 import re
+from urllib.parse import urlparse, parse_qs
 
 PORT = 8000
-import xml.etree.ElementTree as ET
 
-USERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data_base_users.xml')
+USERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'users.json')
+CATEGORIES_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'categories.json')
+CART_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cart.json')
+
+def load_carts():
+    """Load user carts from JSON file."""
+    if not os.path.exists(CART_FILE):
+        return {}
+    try:
+        with open(CART_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+def save_carts(carts):
+    """Save user carts to JSON file."""
+    with open(CART_FILE, 'w', encoding='utf-8') as f:
+        json.dump(carts, f, indent=2)
+
+
+def load_categories():
+    """Load categories database from JSON file."""
+    if not os.path.exists(CATEGORIES_FILE):
+        return []
+    try:
+        with open(CATEGORIES_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return []
 
 
 def load_users():
-    """Load user database from XML file."""
+    """Load user database from JSON file."""
     if not os.path.exists(USERS_FILE):
         return []
     try:
-        tree = ET.parse(USERS_FILE)
-        root = tree.getroot()
-        users = []
-        for user_node in root.findall('user'):
-            users.append({
-                'name': (user_node.find('name').text or '').strip(),
-                'email': (user_node.find('email').text or '').strip().lower(),
-                'password': (user_node.find('password').text or '').strip(),
-                'phone': (user_node.find('phone').text or '').strip()
-            })
-        return users
+        with open(USERS_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
     except Exception:
         return []
 
 
 def save_users(users):
-    """Save user database to XML file."""
-    root = ET.Element('users')
-    for u in users:
-        user_node = ET.SubElement(root, 'user')
-        ET.SubElement(user_node, 'name').text = u.get('name', '')
-        ET.SubElement(user_node, 'email').text = u.get('email', '')
-        ET.SubElement(user_node, 'password').text = u.get('password', '')
-        ET.SubElement(user_node, 'phone').text = u.get('phone', '')
-    
-    tree = ET.ElementTree(root)
-    try:
-        ET.indent(tree, space="  ")
-    except AttributeError:
-        pass
-    tree.write(USERS_FILE, encoding='utf-8', xml_declaration=True)
+    """Save user database to JSON file."""
+    with open(USERS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(users, f, indent=2)
 
 
 def hash_password(password):
@@ -71,11 +78,26 @@ def validate_email(email):
 class ShopEaseHandler(http.server.SimpleHTTPRequestHandler):
     """Custom handler that serves static files and handles API routes."""
 
+    def do_GET(self):
+        parsed_path = urlparse(self.path)
+        if parsed_path.path == '/api/categories':
+            self.handle_get_categories()
+        elif parsed_path.path == '/api/search':
+            query_components = parse_qs(parsed_path.query)
+            self.handle_search(query_components)
+        elif parsed_path.path == '/api/cart':
+            query_components = parse_qs(parsed_path.query)
+            self.handle_get_cart(query_components)
+        else:
+            super().do_GET()
+
     def do_POST(self):
         if self.path == '/api/signup':
             self.handle_signup()
         elif self.path == '/api/login':
             self.handle_login()
+        elif self.path == '/api/cart':
+            self.handle_post_cart()
         else:
             self.send_json(404, {'success': False, 'message': 'Not found'})
 
@@ -149,6 +171,51 @@ class ShopEaseHandler(http.server.SimpleHTTPRequestHandler):
         else:
             self.send_json(401, {'success': False, 'message': 'Invalid email or password'})
 
+    def handle_get_categories(self):
+        categories = load_categories()
+        self.send_json(200, {'success': True, 'data': categories})
+
+    def handle_search(self, query_components):
+        query = query_components.get('q', [''])[0].lower().strip()
+        categories = load_categories()
+        
+        if not query:
+            results = categories
+        else:
+            results = [
+                item for item in categories 
+                if query in item.get('product_name', '').lower() 
+                or query in item.get('category', '').lower()
+            ]
+            
+        self.send_json(200, {'success': True, 'data': results})
+
+    def handle_get_cart(self, query_components):
+        email = query_components.get('email', [''])[0].lower().strip()
+        if not email:
+            return self.send_json(400, {'success': False, 'message': 'Email is required'})
+        
+        carts = load_carts()
+        user_cart = carts.get(email, [])
+        self.send_json(200, {'success': True, 'cart': user_cart})
+
+    def handle_post_cart(self):
+        data = self.read_json_body()
+        if not data:
+            return self.send_json(400, {'success': False, 'message': 'Invalid request body'})
+            
+        email = (data.get('email') or '').lower().strip()
+        cart = data.get('cart')
+        
+        if not email or cart is None:
+            return self.send_json(400, {'success': False, 'message': 'Email and cart are required'})
+            
+        carts = load_carts()
+        carts[email] = cart
+        save_carts(carts)
+        self.send_json(200, {'success': True, 'message': 'Cart saved successfully'})
+
+
     def read_json_body(self):
         """Read and parse JSON from the request body."""
         try:
@@ -190,15 +257,18 @@ def main():
     http://localhost:{PORT}
 
   API Endpoints:
+    GET  /api/categories
+    GET  /api/search?q=query
     POST /api/signup
     POST /api/login
 
   User DB: {os.path.basename(USERS_FILE)}
+  Data DB: {os.path.basename(CATEGORIES_FILE)}
   Press Ctrl+C to stop
 ================================================
     """)
 
-    server = http.server.HTTPServer(('', PORT), ShopEaseHandler)
+    server = http.server.ThreadingHTTPServer(('', PORT), ShopEaseHandler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

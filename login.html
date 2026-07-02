@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Login to your ShopEase account to access your cart, orders, and exclusive deals.">
   <title>Login — ShopEase</title>
-  <link rel="stylesheet" href="style.css?v=1.2">
+  <link rel="stylesheet" href="style.css?v=2.0">
   <style>
     body { margin: 0; min-height: 100vh; /* background overridden by style.css */ /* background */: linear-gradient(135deg, #85edbb, #e2e8f0); display: flex; justify-content: center; align-items: center; }
   </style>
@@ -38,7 +38,7 @@
 </div>
 
 <div id="toast-container"></div>
-<script src="main.js"></script>
+<script src="main.js?v=4.0"></script>
 <script>
   // Redirect if already logged in
   if (getSession()) {
@@ -79,6 +79,7 @@
 
     if (result.success) {
       setSession(result.user);
+      await syncCartOnLogin(); // Sync cart before redirecting
       showToast('Welcome back, ' + result.user.name + '! 🎉');
       addNotification('Logged In', 'Welcome back, ' + result.user.name + '!', '👋', 'green');
       setTimeout(() => window.location.href = 'experiment1on_capstone.html', 800);

@@ -1,0 +1,765 @@
+[
+    {
+        "id": "refrigerator",
+        "product_name": "Refrigerator",
+        "price": "\u20b925,999",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8-kiM2r5XXd6rynlT7nTJ2GYR1MwtNMl5JQ&s"
+    },
+    {
+        "id": "washing-machine",
+        "product_name": "Washing Machine",
+        "price": "\u20b918,999",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTatw7NgSRxxvBWXd5Yl_p4L3cPA180nzqY2g&s"
+    },
+    {
+        "id": "microwave-oven",
+        "product_name": "Microwave Oven",
+        "price": "\u20b99,999",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgF9M3c52Xx64WK3FZq9eQNeuSwGnvFEiVgA&s"
+    },
+    {
+        "id": "air-conditioner",
+        "product_name": "Air Conditioner",
+        "price": "\u20b932,999",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk5ZqhYxaY3SP6A_BtBeqQ6YMfCNKJX_YLJQ&s"
+    },
+    {
+        "id": "ceiling-fan",
+        "product_name": "Ceiling Fan",
+        "price": "\u20b92,499",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB9OTIP40DvttvQZiOjDSZmza-LPGHOp6hYg&s"
+    },
+    {
+        "id": "vacuum-cleaner",
+        "product_name": "Vacuum Cleaner",
+        "price": "\u20b97,499",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMYS0UpiGWrRsQr_ATzTbBWtPLXo_7WxRQoA&s"
+    },
+    {
+        "id": "mixer-grinder",
+        "product_name": "Mixer Grinder",
+        "price": "\u20b93,499",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGx1xZD90x_iJF_w-QofdsShCVeVRMLptTsg&s"
+    },
+    {
+        "id": "electric-iron",
+        "product_name": "Electric Iron",
+        "price": "\u20b91,299",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHkURM0KSNVx6NdCTQK-EdqPavJkbhXo4d8Q&s"
+    },
+    {
+        "id": "air-cooler",
+        "product_name": "Air Cooler",
+        "price": "\u20b98,999",
+        "category": "applications",
+        "image": "https://5.imimg.com/data5/AK/DQ/MY-38559956/room-air-cooler-500x500.jpg"
+    },
+    {
+        "id": "dishwasher",
+        "product_name": "Dishwasher",
+        "price": "\u20b929,999",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkBUe0iO422MG7DxONdRTYV_OPqHaJCKhhoA&s"
+    },
+    {
+        "id": "water-purifier",
+        "product_name": "Water Purifier",
+        "price": "\u20b912,999",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2EMxGK0uzqC89yZEBhnZKr5akcPzJi623kA&s"
+    },
+    {
+        "id": "induction-cooktop",
+        "product_name": "Induction Cooktop",
+        "price": "\u20b92,799",
+        "category": "applications",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZR8WdYu61-BeYSq0PW9wIEM8YYXkFhs4Y3g&s"
+    },
+    {
+        "id": "laptop",
+        "product_name": "Laptop",
+        "price": "\u20b955,999",
+        "category": "electronics",
+        "image": "https://i5.walmartimages.com/seo/HP-15-6-Ryzen-5-8GB-256GB-Laptop-Rose-Gold_36809cf3-480b-47a5-94f0-e1d5e70c58c0_3.fcc0d6494b0e279a13c32c80c28abfa3.jpeg"
+    },
+    {
+        "id": "bluetooth-speaker",
+        "product_name": "Bluetooth Speaker",
+        "price": "\u20b92,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnYcl091v6ENPZcPAyIPIKYnl84CJJ1pf0sg&s"
+    },
+    {
+        "id": "smart-tv",
+        "product_name": "Smart TV",
+        "price": "\u20b939,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk2GAEv2BeZxDOAVaJZ2KF-YKarCTdaaZAyw&s"
+    },
+    {
+        "id": "earbuds",
+        "product_name": "Earbuds",
+        "price": "\u20b94,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8kFxPPAGf3n7O1TxV9cB-HpxvHj7qQZfMEw&s"
+    },
+    {
+        "id": "gaming-console",
+        "product_name": "Gaming Console",
+        "price": "\u20b949,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO-CToKiJ12Gk_5ZUgBcKggcucJ6f3Qg5W1g&s"
+    },
+    {
+        "id": "smartwatch",
+        "product_name": "Smartwatch",
+        "price": "\u20b96,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAMhP0OJN-n2rd78kFnMj6Y8FRT9w5W3d3w&s"
+    },
+    {
+        "id": "tablet",
+        "product_name": "Tablet",
+        "price": "\u20b924,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcnW8eCQSGRnrgP5apsc9uUwFcxawTn0wTig&s"
+    },
+    {
+        "id": "power-bank",
+        "product_name": "Power Bank",
+        "price": "\u20b91,499",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFe6H5ZfbBt_rafglTb8ID16U7JiAaDGsW9A&s"
+    },
+    {
+        "id": "dslr-camera",
+        "product_name": "DSLR Camera",
+        "price": "\u20b959,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz1h-dRLbxSQ6v3LJsoCCY8Xbqc3_Gg0vSwQ&s"
+    },
+    {
+        "id": "monitor",
+        "product_name": "Monitor",
+        "price": "\u20b912,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3iW7q1llVM1XCtSriiJEROK1wc9RL7Wmg3A&s"
+    },
+    {
+        "id": "keyboard",
+        "product_name": "Keyboard",
+        "price": "\u20b91,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-CCuFHScCu0irjNL8FXJ89GLEf5WSCn2UuQ&s"
+    },
+    {
+        "id": "mouse",
+        "product_name": "Mouse",
+        "price": "\u20b9999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDF43zMnii075UjwL0OEqSKCgJkZ6FE2h0-A&s"
+    },
+    {
+        "id": "headphones",
+        "product_name": "Headphones",
+        "price": "\u20b93,499",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcDEQ5oturBbwzi0uJscalDGzNQcgD5ZyJGQ&s"
+    },
+    {
+        "id": "wifi-router",
+        "product_name": "WiFi Router",
+        "price": "\u20b92,499",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuhfnoUrfhS6nogxhO3vu8DtVHkre7uqYwkQ&s"
+    },
+    {
+        "id": "printer",
+        "product_name": "Printer",
+        "price": "\u20b98,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWqYAnhx5MqDo-yhHkYZzpgpL9tBg1UMYXg&s"
+    },
+    {
+        "id": "projector",
+        "product_name": "Projector",
+        "price": "\u20b914,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtLVvt2MxDPYQJiENUsrzX9peYhMWcXiA82g&s"
+    },
+    {
+        "id": "electric-kettle",
+        "product_name": "Electric Kettle",
+        "price": "\u20b91,299",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBpukvH3L57b7oymibuy934MX9oLm_ZmkBJA&s"
+    },
+    {
+        "id": "induction-stove",
+        "product_name": "Induction Stove",
+        "price": "\u20b92,799",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7LxS32yzhsDSGJLdKU7M585nuvBdqQYs7kw&s"
+    },
+    {
+        "id": "air-purifier",
+        "product_name": "Air Purifier",
+        "price": "\u20b99,999",
+        "category": "electronics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoG9bDriHiXLE-LaLexf-tAnjoHlfOwJ4wOA&s"
+    },
+    {
+        "id": "men-t-shirt",
+        "product_name": "Men T-Shirt",
+        "price": "\u20b9999",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp7Lq2YXBl3Mj4HOlZ6yMFN0bxjCqV9L3q&s"
+    },
+    {
+        "id": "summer-dress",
+        "product_name": "Summer Dress",
+        "price": "\u20b91,499",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReLGqKp4uXXe9OjlL2Dh9JwPFi_cxzRiw&s"
+    },
+    {
+        "id": "denim-jeans",
+        "product_name": "Denim Jeans",
+        "price": "\u20b91,999",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD9-LzZ2gGWJJXvLplUbRTlYtEc1_9_BO9UQ&s"
+    },
+    {
+        "id": "hoodie",
+        "product_name": "Hoodie",
+        "price": "\u20b92,299",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqwKybb-pF0VJocm46rYbZoPDZcpuExjQawg&s"
+    },
+    {
+        "id": "leather-jacket",
+        "product_name": "Leather Jacket",
+        "price": "\u20b94,999",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhJ0tpCmB-uKZzaotR8whwd0BYjDd3byL6EQ&s"
+    },
+    {
+        "id": "kurti",
+        "product_name": "Kurti",
+        "price": "\u20b91,299",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWJ1_sORjtwiYJVgc8ugFDnRP0W_byMMjVMw&s"
+    },
+    {
+        "id": "formal-shirt",
+        "product_name": "Formal Shirt",
+        "price": "\u20b91,499",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0k0LOkBcl5EPa4dL3cztiN3Q9dDY2ELXB2g&s"
+    },
+    {
+        "id": "track-pants",
+        "product_name": "Track Pants",
+        "price": "\u20b91,199",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRMqaRdfHKrY6c4g2zGcMcNbo1MG0VI4f5wg&s"
+    },
+    {
+        "id": "blazer",
+        "product_name": "Blazer",
+        "price": "\u20b93,999",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfw5_PoN0R5yNcSiSp4Y2HFhrpASbIfaeO1Q&s"
+    },
+    {
+        "id": "saree",
+        "product_name": "Saree",
+        "price": "\u20b92,999",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF2zQ5N3YcVrtdEz_S_DQSFNwEw9lki1tUfg&s"
+    },
+    {
+        "id": "shorts",
+        "product_name": "Shorts",
+        "price": "\u20b9799",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEmXERRUHK5LBwbnvRE3TLKwyc0IMwzhmN8A&s"
+    },
+    {
+        "id": "skirt",
+        "product_name": "Skirt",
+        "price": "\u20b91,299",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm4CCohFDYIb0BRJuE8pV6W39DiFqT5PLEsA&s"
+    },
+    {
+        "id": "sweater",
+        "product_name": "Sweater",
+        "price": "\u20b91,899",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy-QLE9w5nOI_HEmLRFPsxuNi1PV6U0-3F5g&s"
+    },
+    {
+        "id": "joggers",
+        "product_name": "Joggers",
+        "price": "\u20b91,499",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3qneIXwtEbBDlAxgb6_nRjF78RiUSrE3diQ&s"
+    },
+    {
+        "id": "tank-top",
+        "product_name": "Tank Top",
+        "price": "\u20b9699",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3bvLKrqdqj15g1qLKyeQybfwWGyoIw8Y4xw&s"
+    },
+    {
+        "id": "cargo-pants",
+        "product_name": "Cargo Pants",
+        "price": "\u20b91,799",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQshmvHGOEoUickQq8jq_9R-dKunLNynOqffA&s"
+    },
+    {
+        "id": "winter-coat",
+        "product_name": "Winter Coat",
+        "price": "\u20b95,499",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuIp9XZZAJ7tT2OoHwjU2f02Q8TprZG_WhDQ&s"
+    },
+    {
+        "id": "palazzo-pants",
+        "product_name": "Palazzo Pants",
+        "price": "\u20b91,299",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHPeyCoRGrRur4ycrxwzSlMPNHpGYnSDhlMA&s"
+    },
+    {
+        "id": "printed-shirt",
+        "product_name": "Printed Shirt",
+        "price": "\u20b91,399",
+        "category": "fashion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIidfvzRokxIw7uk0KP4rTGmLRY1-ZzGh-6A&s"
+    },
+    {
+        "id": "modern-sofa",
+        "product_name": "Modern Sofa",
+        "price": "\u20b945,000",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300"
+    },
+    {
+        "id": "velvet-chair",
+        "product_name": "Velvet Chair",
+        "price": "\u20b912,500",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=300"
+    },
+    {
+        "id": "oak-dining-table",
+        "product_name": "Oak Dining Table",
+        "price": "\u20b932,000",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=300"
+    },
+    {
+        "id": "king-size-bed",
+        "product_name": "King Size Bed",
+        "price": "\u20b955,000",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=300"
+    },
+    {
+        "id": "wooden-bookshelf",
+        "product_name": "Wooden Bookshelf",
+        "price": "\u20b98,900",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=300"
+    },
+    {
+        "id": "coffee-table",
+        "product_name": "Coffee Table",
+        "price": "\u20b96,400",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=300"
+    },
+    {
+        "id": "office-desk",
+        "product_name": "Office Desk",
+        "price": "\u20b914,200",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=300"
+    },
+    {
+        "id": "bar-stool",
+        "product_name": "Bar Stool",
+        "price": "\u20b94,500",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1503602642458-232111445657?w=300"
+    },
+    {
+        "id": "armchair",
+        "product_name": "Armchair",
+        "price": "\u20b99,800",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=300"
+    },
+    {
+        "id": "lounge-chair",
+        "product_name": "Lounge Chair",
+        "price": "\u20b915,000",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=300"
+    },
+    {
+        "id": "nightstand",
+        "product_name": "Nightstand",
+        "price": "\u20b93,200",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=300"
+    },
+    {
+        "id": "tv-unit",
+        "product_name": "TV Unit",
+        "price": "\u20b918,900",
+        "category": "furniture",
+        "image": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=300"
+    },
+    {
+        "id": "bananas",
+        "product_name": "Bananas",
+        "price": "\u20b960",
+        "category": "grocery",
+        "image": "https://images.unsplash.com/photo-1587334274328-64186a80aeee?w=300"
+    },
+    {
+        "id": "apples",
+        "product_name": "Apples",
+        "price": "\u20b9180",
+        "category": "grocery",
+        "image": "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=300"
+    },
+    {
+        "id": "rice",
+        "product_name": "Rice",
+        "price": "\u20b9120",
+        "category": "grocery",
+        "image": "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=300"
+    },
+    {
+        "id": "spinach",
+        "product_name": "Spinach",
+        "price": "\u20b930",
+        "category": "grocery",
+        "image": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300"
+    },
+    {
+        "id": "bread",
+        "product_name": "Bread",
+        "price": "\u20b945",
+        "category": "grocery",
+        "image": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=300"
+    },
+    {
+        "id": "broccoli",
+        "product_name": "Broccoli",
+        "price": "\u20b970",
+        "category": "grocery",
+        "image": "https://images.unsplash.com/photo-1518843875459-f738682238a6?w=300"
+    },
+    {
+        "id": "teddy-bear",
+        "product_name": "Teddy Bear",
+        "price": "\u20b9899",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1532330393533-443990a51d10?w=300"
+    },
+    {
+        "id": "building-blocks",
+        "product_name": "Building Blocks",
+        "price": "\u20b91,250",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=300"
+    },
+    {
+        "id": "toy-train-set",
+        "product_name": "Toy Train Set",
+        "price": "\u20b92,400",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=300"
+    },
+    {
+        "id": "blue-kids-sneakers",
+        "product_name": "Blue Kids Sneakers",
+        "price": "\u20b91,599",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1556012018-50c5c0da73bf?w=300"
+    },
+    {
+        "id": "cotton-baby-suit",
+        "product_name": "Cotton Baby Suit",
+        "price": "\u20b9750",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=300"
+    },
+    {
+        "id": "party-balloons-kit",
+        "product_name": "Party Balloons Kit",
+        "price": "\u20b9450",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1513159446162-54eb8bdaa79b?w=300"
+    },
+    {
+        "id": "crayons-set",
+        "product_name": "Crayons Set",
+        "price": "\u20b9299",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=300"
+    },
+    {
+        "id": "picture-story-book",
+        "product_name": "Picture Story Book",
+        "price": "\u20b9350",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=300"
+    },
+    {
+        "id": "remote-control-car",
+        "product_name": "Remote Control Car",
+        "price": "\u20b91,850",
+        "category": "kids",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6AMuBGjmJlvHfI1aQapTd0VoM8_aBSrO2Q&s"
+    },
+    {
+        "id": "wooden-puzzle",
+        "product_name": "Wooden Puzzle",
+        "price": "\u20b9599",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=300"
+    },
+    {
+        "id": "plush-dinosaur",
+        "product_name": "Plush Dinosaur",
+        "price": "\u20b91,100",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1519340333755-56e9c1d04579?w=300"
+    },
+    {
+        "id": "kids-backpack",
+        "product_name": "Kids Backpack",
+        "price": "\u20b91,200",
+        "category": "kids",
+        "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=300"
+    },
+    {
+        "id": "action-figure",
+        "product_name": "Action Figure",
+        "price": "\u20b91,300",
+        "category": "kids",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLanggtLHIS2PmRoF5eoVgn09Jz2A6TyKQHQ&s"
+    },
+    {
+        "id": "kids-bicycle",
+        "product_name": "Kids Bicycle",
+        "price": "\u20b95,500",
+        "category": "kids",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu-yKVsnH_v6jlljnl9rmUvLYGl0iGM0-1Kg&s"
+    },
+    {
+        "id": "iphone-15",
+        "product_name": "iPhone 15",
+        "price": "\u20b979,999",
+        "category": "Mobile",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmhjYPw3jMjyqy42UXqBFCnrsS1OoRI4Wrqg&s"
+    },
+    {
+        "id": "samsung-s23",
+        "product_name": "Samsung S23",
+        "price": "\u20b974,999",
+        "category": "Mobile",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuYNaYWc5_iK47UHChYtRzCzPpAnKUFUZ2Sg&s"
+    },
+    {
+        "id": "oneplus-12",
+        "product_name": "OnePlus 12",
+        "price": "\u20b964,999",
+        "category": "Mobile",
+        "image": "https://m.media-amazon.com/images/I/71YzJwmRFCL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+        "id": "realme-gt",
+        "product_name": "Realme GT",
+        "price": "\u20b935,999",
+        "category": "Mobile",
+        "image": "https://suprememobiles.in/cdn/shop/files/8_90a82f95-2bac-489c-a44d-5b1c416aea76.webp?v=1770188833"
+    },
+    {
+        "id": "vivo-v40",
+        "product_name": "Vivo V40",
+        "price": "\u20b935,999",
+        "category": "Mobile",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg4y5HDBeaf8Eg0ZseunfqloLou0tjqehqWA&s"
+    },
+    {
+        "id": "iphone-15-pro-max",
+        "product_name": "iPhone 15 Pro Max",
+        "price": "\u20b91,19,999",
+        "category": "Mobile",
+        "image": "https://image.cdn.shpy.in/301826/1-1708520956671.jpeg?width=600&format=webp"
+    },
+    {
+        "id": "realme-c53",
+        "product_name": "Realme C53",
+        "price": "\u20b910,999",
+        "category": "Mobile",
+        "image": "https://cdn.beebom.com/mobile/realme-c53-front-and-back-2.png"
+    },
+    {
+        "id": "vivo-v50",
+        "product_name": "Vivo V50",
+        "price": "\u20b935,999",
+        "category": "Mobile",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUTUTxMLCed9Vcqla4SY64BvllfhOcVyxmdw&s"
+    },
+    {
+        "id": "iqoo-neo-10r",
+        "product_name": "Iqoo Neo 10R",
+        "price": "\u20b935,999",
+        "category": "Mobile",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_vPF1OfT1CPfE5soLZQdu2of9s7-wRy1PtA&s"
+    },
+    {
+        "id": "iphone-13",
+        "product_name": "iPhone 13",
+        "price": "\u20b968,999",
+        "category": "Mobile",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsPHkfZEkBSMUwD2V5iryzmTMtDfnAHwnimA&s"
+    },
+    {
+        "id": "vivo-v29",
+        "product_name": "Vivo V29",
+        "price": "\u20b938,999",
+        "category": "Mobile",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhCfFu8IousT2tp5M-Uv7dqhTQMbK62ur-mw&s"
+    },
+    {
+        "id": "vivo-v25",
+        "product_name": "Vivo V25",
+        "price": "\u20b930,999",
+        "category": "Mobile",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgkz29oJrTN4O_qdyF7bD-fjGf2W37bCqjxw&s"
+    },
+    {
+        "id": "pixel-7",
+        "product_name": "Pixel 7",
+        "price": "\u20b933,999",
+        "category": "Mobile",
+        "image": "https://bankofelectronics.com/557-medium_default/google-pixel-7-5g-obisidian-8gb-ram128gb-storage.jpg"
+    },
+    {
+        "id": "power-drill",
+        "product_name": "Power Drill",
+        "price": "\u20b94,200",
+        "category": "tools",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5HyImJBmFl0pPwT0tZc1dnKL2vP8KH6ZjUg&s"
+    },
+    {
+        "id": "claw-hammer",
+        "product_name": "Claw Hammer",
+        "price": "\u20b9450",
+        "category": "tools",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_vk0AXLZXNW34SNjrwZoV1wsjmQht6t0sdQ&s"
+    },
+    {
+        "id": "screwdriver-set",
+        "product_name": "Screwdriver Set",
+        "price": "\u20b9899",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=400"
+    },
+    {
+        "id": "wrench-kit",
+        "product_name": "Wrench Kit",
+        "price": "\u20b91,550",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=400"
+    },
+    {
+        "id": "tape-measure",
+        "product_name": "Tape Measure",
+        "price": "\u20b9299",
+        "category": "tools",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWLANt4ygeNv1Sx1_es0jxYG_7vUdB9DPY8A&s"
+    },
+    {
+        "id": "electric-saw",
+        "product_name": "Electric Saw",
+        "price": "\u20b95,800",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400"
+    },
+    {
+        "id": "pliers-set",
+        "product_name": "Pliers Set",
+        "price": "\u20b9650",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400"
+    },
+    {
+        "id": "spirit-level",
+        "product_name": "Spirit Level",
+        "price": "\u20b9550",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1581147036324-c17ac41dfa6c?w=400"
+    },
+    {
+        "id": "work-gloves",
+        "product_name": "Work Gloves",
+        "price": "\u20b9350",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=400"
+    },
+    {
+        "id": "safety-helmet",
+        "product_name": "Safety Helmet",
+        "price": "\u20b9799",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400"
+    },
+    {
+        "id": "tool-box",
+        "product_name": "Tool Box",
+        "price": "\u20b92,200",
+        "category": "tools",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc4P6efds4M6JR1f5QouNfID5LpXyqgk_iKQ&s"
+    },
+    {
+        "id": "angle-grinder",
+        "product_name": "Angle Grinder",
+        "price": "\u20b93,450",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1608613304899-ea8098577e38?w=400"
+    },
+    {
+        "id": "chisel-set",
+        "product_name": "Chisel Set",
+        "price": "\u20b91,150",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1531265726475-52ad60219627?w=400"
+    },
+    {
+        "id": "flashlight",
+        "product_name": "Flashlight",
+        "price": "\u20b9850",
+        "category": "tools",
+        "image": "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?w=400"
+    }
+]
