@@ -9,7 +9,7 @@ def generate_id(name):
     return name.strip('-')
 
 files = [f for f in os.listdir('.') if f.endswith('.html')]
-exclude = ['cart.html', 'contactus.html', 'index.html', 'login.html', 'signuppage.html', 'experiment1on_capstone.html']
+exclude = ['cart.html', 'contactus.html', 'index.html', 'login.html', 'signuppage.html']
 categories_files = [f for f in files if f not in exclude]
 
 products = []
@@ -29,7 +29,11 @@ for filename in categories_files:
         pattern2 = r'<img\s+src=["\'](.*?)["\'].*?>.*?<div class="product-title">(.*?)</div>.*?<div class="product-price">(.*?)</div>'
         matches2 = re.findall(pattern2, content, flags=re.DOTALL | re.IGNORECASE)
         
-        all_matches = matches + matches2
+        # Handle featured-card style in experiment1on_capstone.html
+        pattern3 = r'<img\s+src=["\'](.*?)["\'].*?>\s*</div>\s*<div class="info">\s*<div class="fname">(.*?)</div>\s*<div class="fprice">(.*?)</div>'
+        matches3 = re.findall(pattern3, content, flags=re.DOTALL | re.IGNORECASE)
+        
+        all_matches = matches + matches2 + matches3
         
         for img, name, price in all_matches:
             name = name.strip()

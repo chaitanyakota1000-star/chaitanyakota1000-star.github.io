@@ -217,6 +217,34 @@
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoG9bDriHiXLE-LaLexf-tAnjoHlfOwJ4wOA&s"
     },
     {
+        "id": "iqoo-15-5g",
+        "product_name": "Iqoo 15 5G",
+        "price": "Just \u20b915,000",
+        "category": "experiment1on_capstone",
+        "image": "https://darlingretail.com/cdn/shop/files/1_6_e4917ae6-59ac-4c7e-83f8-9b7a9fdf68ea_600x.jpg?v=1753531644"
+    },
+    {
+        "id": "vivo-x200-5g",
+        "product_name": "Vivo X200 5G",
+        "price": "\u20b985,000",
+        "category": "experiment1on_capstone",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9AC-8IWMDcxDoQdEQOploTeqR5bpUdq6rdw&s"
+    },
+    {
+        "id": "google-pixel-9a",
+        "product_name": "Google Pixel 9A",
+        "price": "\u20b930,000",
+        "category": "experiment1on_capstone",
+        "image": "https://lh3.googleusercontent.com/LDj3-pgnVeoxCjF0FbgMAXHFZdqTNIIdET1MWMSwn1xcGC9lzI8zQwVSMWkjuw52ucZ1K8_HyhKMrBQcE5cE7ZEBZFbPV8vJGTZvUw=e365-pa-nu-s0"
+    },
+    {
+        "id": "redmi-note-15-pro",
+        "product_name": "Redmi Note 15 Pro",
+        "price": "\u20b925,000",
+        "category": "experiment1on_capstone",
+        "image": "https://m.media-amazon.com/images/I/41+Jw8la8uL._SY300_SX300_QL70_FMwebp_.jpg"
+    },
+    {
         "id": "men-t-shirt",
         "product_name": "Men T-Shirt",
         "price": "\u20b9999",
