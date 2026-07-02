@@ -114,7 +114,7 @@ function saveCart(cart) {
 // ─── Backend Cart Sync ──────────────────────────────────────
 async function fetchProductsCache() {
   try {
-    const res = await fetch('./categories.json');
+    const res = await fetch('./categories.json?v=' + new Date().getTime());
     if (res.ok) {
       const json = await res.json();
       // Handle both API response ({success: true, data: [...]}) and static JSON ([...])
