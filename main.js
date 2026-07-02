@@ -114,10 +114,13 @@ function saveCart(cart) {
 // ─── Backend Cart Sync ──────────────────────────────────────
 async function fetchProductsCache() {
   try {
-    const res = await fetch('/api/categories');
+    const res = await fetch('./categories.json');
     if (res.ok) {
       const json = await res.json();
-      if (json.success) {
+      // Handle both API response ({success: true, data: [...]}) and static JSON ([...])
+      if (Array.isArray(json)) {
+        localStorage.setItem('productsCache', JSON.stringify(json));
+      } else if (json.success) {
         localStorage.setItem('productsCache', JSON.stringify(json.data));
       }
     }
@@ -287,13 +290,22 @@ function initSearch() {
     // 2. Fetch and show dropdown results from backend
     timeout = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(qRaw)}`);
-        if (!res.ok) throw new Error('Network error');
-        const json = await res.json();
+        let results = [];
+        try {
+          const res = await fetch(`/api/search?q=${encodeURIComponent(qRaw)}`);
+          if (res.ok) {
+            const json = await res.json();
+            if (json.success) results = json.data;
+          }
+        } catch (e) {
+          // Fallback for GitHub Pages static hosting
+          const cache = getProductsCache();
+          results = cache.filter(p => p.product_name.toLowerCase().includes(qLower));
+        }
         
-        if (json.success && json.data.length > 0) {
-          resultsBox.innerHTML = json.data.map(item => `
-            <div class="search-result-item" onclick="addToCart('${item.product_name}', ${item.price.replace(/[^0-9]/g, '')}); document.getElementById('search').value=''; document.getElementById('search-results-box').style.display='none';">
+        if (results.length > 0) {
+          resultsBox.innerHTML = results.map(item => `
+            <div class="search-result-item" onclick="addToCart('${item.product_name}', ${parseInt(item.price.replace(/[^0-9]/g, ''))}); document.getElementById('search').value=''; document.getElementById('search-results-box').style.display='none';">
               <span class="search-item-name">${item.product_name}</span>
               <span class="search-item-price">${item.price}</span>
               <span class="search-item-cat">${item.category}</span>
