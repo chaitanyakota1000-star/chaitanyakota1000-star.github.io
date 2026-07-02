@@ -82,9 +82,6 @@ class ShopEaseHandler(http.server.SimpleHTTPRequestHandler):
         parsed_path = urlparse(self.path)
         if parsed_path.path == '/api/categories':
             self.handle_get_categories()
-        elif parsed_path.path == '/api/search':
-            query_components = parse_qs(parsed_path.query)
-            self.handle_search(query_components)
         elif parsed_path.path == '/api/cart':
             query_components = parse_qs(parsed_path.query)
             self.handle_get_cart(query_components)
@@ -174,21 +171,6 @@ class ShopEaseHandler(http.server.SimpleHTTPRequestHandler):
     def handle_get_categories(self):
         categories = load_categories()
         self.send_json(200, {'success': True, 'data': categories})
-
-    def handle_search(self, query_components):
-        query = query_components.get('q', [''])[0].lower().strip()
-        categories = load_categories()
-        
-        if not query:
-            results = categories
-        else:
-            results = [
-                item for item in categories 
-                if query in item.get('product_name', '').lower() 
-                or query in item.get('category', '').lower()
-            ]
-            
-        self.send_json(200, {'success': True, 'data': results})
 
     def handle_get_cart(self, query_components):
         email = query_components.get('email', [''])[0].lower().strip()

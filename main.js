@@ -291,38 +291,26 @@ function initSearch() {
       return;
     }
     
-    // 2. Fetch and show dropdown results from backend
-    timeout = setTimeout(async () => {
-      try {
-        let results = [];
-        try {
-          const res = await fetch(`/api/search?q=${encodeURIComponent(qRaw)}`);
-          if (!res.ok) throw new Error('API not available');
-          const json = await res.json();
-          if (json.success) results = json.data;
-        } catch (e) {
-          // Fallback for GitHub Pages static hosting
-          const cache = getProductsCache();
-          results = cache.filter(p => p.product_name.toLowerCase().includes(qLower));
-        }
-        
-        if (results.length > 0) {
-          resultsBox.innerHTML = results.map(item => `
-            <div class="search-result-item" onclick="addToCart('${item.id}'); document.getElementById('search').value=''; document.getElementById('search-results-box').style.display='none';">
-              <span class="search-item-name">${item.product_name}</span>
-              <span class="search-item-price">${item.price}</span>
-              <span class="search-item-cat">${item.category}</span>
-            </div>
-          `).join('');
-          resultsBox.style.display = 'block';
-        } else {
-          resultsBox.innerHTML = '<div class="search-result-empty">No products found</div>';
-          resultsBox.style.display = 'block';
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    }, 300); // 300ms debounce
+    // 2. Instantly filter dropdown results from local cache
+    const cache = getProductsCache();
+    const results = cache.filter(p => 
+      p.product_name.toLowerCase().includes(qLower) || 
+      (p.category && p.category.toLowerCase().includes(qLower))
+    );
+    
+    if (results.length > 0) {
+      resultsBox.innerHTML = results.map(item => `
+        <div class="search-result-item" onclick="addToCart('${item.id}'); document.getElementById('search').value=''; document.getElementById('search-results-box').style.display='none';">
+          <span class="search-item-name">${item.product_name}</span>
+          <span class="search-item-price">${item.price}</span>
+          <span class="search-item-cat">${item.category || ''}</span>
+        </div>
+      `).join('');
+      resultsBox.style.display = 'block';
+    } else {
+      resultsBox.innerHTML = '<div class="search-result-empty">No products found</div>';
+      resultsBox.style.display = 'block';
+    }
   });
   
   // Hide on click outside
