@@ -229,28 +229,32 @@ function updateCartBadge() {
 }
 
 // ─── Add to Cart (globally used by product pages) ───────────
-function addToCart(name, price, imgSrc) {
-  const cart = getCart();
-  const id = generateId(name);
-  if (!imgSrc) {
-    try {
-      const btn = event.currentTarget || event.target;
-      const card = btn.closest('.product-card') || btn.closest('.card') || btn.closest('.smartbox') || btn.closest('.featured-card');
-      if (card) {
-        const img = card.querySelector('img');
-        if (img) imgSrc = img.src;
-      }
-    } catch(e) {}
+function addToCart(id) {
+  const cache = getProductsCache();
+  const product = cache.find(p => p.id === id);
+  
+  if (!product) {
+    showToast('Failed to add product. Try refreshing.');
+    return;
   }
-  const existing = cart.find(i => (i.id || generateId(i.name)) === id);
+
+  const cart = getCart();
+  const existing = cart.find(i => i.id === id);
   if (existing) {
     existing.quantity = (existing.quantity || 1) + 1;
   } else {
-    cart.push({ id, name: name.trim(), price, quantity: 1, image: imgSrc || '' });
+    cart.push({ 
+      id: product.id, 
+      name: product.product_name, 
+      price: parseInt(product.price.replace(/[^0-9]/g, '')), 
+      quantity: 1, 
+      image: product.image 
+    });
   }
+  
   saveCart(cart);
-  showToast(`${name.trim()} added to cart!`);
-  addNotification('Added to Cart', `${name.trim()} — ₹${price.toLocaleString()}`, '🛒', 'blue');
+  showToast(`${product.product_name} added to cart!`);
+  addNotification('Added to Cart', `${product.product_name} — ${product.price}`, '🛒', 'blue');
 }
 
 // ─── Search Filter ──────────────────────────────────────────
@@ -305,7 +309,7 @@ function initSearch() {
         
         if (results.length > 0) {
           resultsBox.innerHTML = results.map(item => `
-            <div class="search-result-item" onclick="addToCart('${item.product_name}', ${parseInt(item.price.replace(/[^0-9]/g, ''))}); document.getElementById('search').value=''; document.getElementById('search-results-box').style.display='none';">
+            <div class="search-result-item" onclick="addToCart('${item.id}'); document.getElementById('search').value=''; document.getElementById('search-results-box').style.display='none';">
               <span class="search-item-name">${item.product_name}</span>
               <span class="search-item-price">${item.price}</span>
               <span class="search-item-cat">${item.category}</span>
