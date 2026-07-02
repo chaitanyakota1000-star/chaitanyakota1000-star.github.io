@@ -297,10 +297,9 @@ function initSearch() {
         let results = [];
         try {
           const res = await fetch(`/api/search?q=${encodeURIComponent(qRaw)}`);
-          if (res.ok) {
-            const json = await res.json();
-            if (json.success) results = json.data;
-          }
+          if (!res.ok) throw new Error('API not available');
+          const json = await res.json();
+          if (json.success) results = json.data;
         } catch (e) {
           // Fallback for GitHub Pages static hosting
           const cache = getProductsCache();

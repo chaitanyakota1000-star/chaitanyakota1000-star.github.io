@@ -6,8 +6,8 @@ for file in html_files:
     with open(file, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    if '<script src="main.js?v=4.0"></script>' in content:
-        content = content.replace('<script src="main.js?v=4.0"></script>', '<script src="main.js?v=5.0"></script>')
+    if '<script src="main.js?v=5.0"></script>' in content:
+        content = content.replace('<script src="main.js?v=5.0"></script>', '<script src="main.js?v=6.0"></script>')
         with open(file, 'w', encoding='utf-8') as f:
             f.write(content)
         print(f"Updated {file}")
