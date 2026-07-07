@@ -552,10 +552,11 @@ async function apiSignup(data) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
+    if (!res.ok) throw new Error('API not available (Status: ' + res.status + ')');
     return await res.json();
   } catch (err) {
-    console.error(err);
-    return { success: false, message: 'Could not connect to the backend server. Are you visiting via http://localhost:8000 ?' };
+    console.warn("Backend not reachable, falling back to local storage.", err);
+    return localSignup(data);
   }
 }
 
@@ -566,10 +567,11 @@ async function apiLogin(data) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
+    if (!res.ok) throw new Error('API not available (Status: ' + res.status + ')');
     return await res.json();
   } catch (err) {
-    console.error(err);
-    return { success: false, message: 'Could not connect to the backend server. Are you visiting via http://localhost:8000 ?' };
+    console.warn("Backend not reachable, falling back to local storage.", err);
+    return localLogin(data);
   }
 }
 
